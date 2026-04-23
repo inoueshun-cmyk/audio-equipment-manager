@@ -1,1 +1,262 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>FJN SoundStock マニュアル</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;font-size:15px;color:#1a1a1a;background:#f5f5f0;line-height:1.7}
+.header{background:#1a1a1a;color:#fff;padding:1.25rem 1.5rem;position:sticky;top:0;z-index:10;display:flex;align-items:center;gap:1rem}
+.header-title{font-size:16px;font-weight:600;letter-spacing:0.5px}
+.header-sub{font-size:12px;color:rgba(255,255,255,0.5)}
+.header a{color:rgba(255,255,255,0.7);font-size:12px;text-decoration:none;margin-left:auto;border:1px solid rgba(255,255,255,0.3);padding:4px 12px;border-radius:6px}
+.header a:hover{background:rgba(255,255,255,0.1)}
+.container{max-width:800px;margin:0 auto;padding:1.5rem 1rem 4rem}
+.toc{background:#fff;border:1px solid #e0e0e0;border-radius:10px;padding:1.25rem;margin-bottom:2rem}
+.toc-title{font-weight:600;font-size:14px;margin-bottom:0.75rem;color:#666}
+.toc ol{padding-left:1.25rem}
+.toc li{margin-bottom:4px}
+.toc a{color:#378ADD;text-decoration:none;font-size:14px}
+.toc a:hover{text-decoration:underline}
+.section{background:#fff;border:1px solid #e0e0e0;border-radius:10px;padding:1.5rem;margin-bottom:1.25rem}
+h2{font-size:17px;font-weight:600;margin-bottom:1rem;padding-bottom:0.5rem;border-bottom:2px solid #1a1a1a;display:flex;align-items:center;gap:8px}
+h2 .num{background:#1a1a1a;color:#fff;font-size:12px;width:24px;height:24px;border-radius:50%;display:inline-flex;align-items:center;justify-content:center;flex-shrink:0}
+h3{font-size:15px;font-weight:600;margin:1.25rem 0 0.5rem;color:#333}
+p{margin-bottom:0.75rem;color:#333}
+ul,ol{padding-left:1.4rem;margin-bottom:0.75rem;color:#333}
+li{margin-bottom:4px}
+table{width:100%;border-collapse:collapse;font-size:13px;margin-bottom:1rem}
+th{background:#f5f5f0;padding:8px 12px;text-align:left;font-weight:600;border:1px solid #e0e0e0}
+td{padding:8px 12px;border:1px solid #e0e0e0}
+.badge-admin{display:inline-block;background:#1a1a1a;color:#fff;font-size:11px;padding:1px 7px;border-radius:10px;margin-left:6px;vertical-align:middle}
+.badge-both{display:inline-block;background:#1D9E75;color:#fff;font-size:11px;padding:1px 7px;border-radius:10px;margin-left:6px;vertical-align:middle}
+.note{background:#faeeda;border-left:3px solid #FAC775;border-radius:0 6px 6px 0;padding:0.75rem 1rem;margin-bottom:0.75rem;font-size:13px;color:#633806}
+.tip{background:#e8f4fd;border-left:3px solid #378ADD;border-radius:0 6px 6px 0;padding:0.75rem 1rem;margin-bottom:0.75rem;font-size:13px;color:#0C447C}
+.check{color:#1D9E75;font-weight:600}
+.cross{color:#c00;font-weight:600}
+.perm-table td:nth-child(2),.perm-table td:nth-child(3){text-align:center;font-size:16px}
+@media(max-width:600px){
+  .container{padding:1rem 0.75rem 4rem}
+  .section{padding:1rem}
+  table{font-size:12px}
+  th,td{padding:6px 8px}
+}
+</style>
+</head>
+<body>
 
+<div class="header">
+  <div>
+    <div class="header-title">FJN SoundStock</div>
+    <div class="header-sub">利用マニュアル</div>
+  </div>
+  <a href="https://audio-equipment-manager.vercel.app" target="_blank">アプリを開く →</a>
+</div>
+
+<div class="container">
+
+  <div class="toc">
+    <div class="toc-title">目次</div>
+    <ol>
+      <li><a href="#s1">ログイン・ログアウト</a></li>
+      <li><a href="#s2">ダッシュボード</a></li>
+      <li><a href="#s3">機材マスタ</a></li>
+      <li><a href="#s4">イベント管理</a></li>
+      <li><a href="#s5">見積書</a></li>
+      <li><a href="#s6">メンテナンス</a></li>
+      <li><a href="#s7">設定（管理者のみ）</a></li>
+      <li><a href="#s8">権限一覧</a></li>
+    </ol>
+  </div>
+
+  <!-- 1 -->
+  <div class="section" id="s1">
+    <h2><span class="num">1</span>ログイン・ログアウト</h2>
+    <h3>ログイン手順</h3>
+    <ol>
+      <li>URLにアクセスするとログイン画面が表示される</li>
+      <li><strong>ロール</strong>を選択する（管理者 / 一般メンバー）</li>
+      <li><strong>パスワード</strong>を入力して「ログイン」をタップ</li>
+    </ol>
+    <table>
+      <tr><th>ロール</th><th>初期パスワード</th></tr>
+      <tr><td>管理者</td><td>admin123</td></tr>
+      <tr><td>一般メンバー</td><td>0000</td></tr>
+    </table>
+    <div class="note">⚠️ 初回ログイン後、必ずパスワードを変更してください（設定画面から変更可能）。</div>
+    <h3>ログアウト</h3>
+    <p>画面右上の「ログアウト」ボタンをタップ。</p>
+  </div>
+
+  <!-- 2 -->
+  <div class="section" id="s2">
+    <h2><span class="num">2</span>ダッシュボード</h2>
+    <p>ログイン後に最初に表示される画面。以下の情報を確認できる。</p>
+    <table>
+      <tr><th>項目</th><th>内容</th></tr>
+      <tr><td>総機材種類</td><td>登録されている機材の種類数</td></tr>
+      <tr><td>資産総額</td><td>全機材の（数量 × 単価）の合計</td></tr>
+      <tr><td>要対応</td><td>状態が「要修理」または「故障」の機材数</td></tr>
+      <tr><td>今後のイベント</td><td>本日以降に予定されているイベント数</td></tr>
+      <tr><td>点検アラート</td><td>次回点検日が過ぎている機材数</td></tr>
+    </table>
+    <div class="note">⚠️ 点検期限が過ぎている機材は黄色いアラートボックスに一覧表示される。速やかに点検・記録を行うこと。</div>
+  </div>
+
+  <!-- 3 -->
+  <div class="section" id="s3">
+    <h2><span class="num">3</span>機材マスタ</h2>
+    <p>音響機材の在庫情報を管理する画面。</p>
+    <h3>検索・絞り込み</h3>
+    <ul>
+      <li><strong>検索ボックス</strong> — 機材名・メーカー・型番で絞り込み</li>
+      <li><strong>カテゴリ選択</strong> — 入力系 / 処理系 / 出力系 / 周辺 で絞り込み</li>
+    </ul>
+    <h3>機材の登録 <span class="badge-admin">管理者のみ</span></h3>
+    <ol>
+      <li>「<strong>+ 追加</strong>」ボタンをタップ</li>
+      <li>以下の項目を入力して「保存」</li>
+    </ol>
+    <table>
+      <tr><th>項目</th><th>説明</th></tr>
+      <tr><td>機材名</td><td>例：SM58、パワーアンプ</td></tr>
+      <tr><td>メーカー</td><td>例：Shure、Yamaha</td></tr>
+      <tr><td>型番</td><td>例：SM58-LC、MG16XU</td></tr>
+      <tr><td>カテゴリ</td><td>入力系 / 処理系 / 出力系 / 周辺</td></tr>
+      <tr><td>状態</td><td>良好 / 要注意 / 要修理 / 故障</td></tr>
+      <tr><td>数量</td><td>所有台数</td></tr>
+      <tr><td>単価（日）</td><td>見積書に使用するレンタル単価</td></tr>
+      <tr><td>保管場所</td><td>例：棚A-1</td></tr>
+      <tr><td>シリアル番号</td><td>任意</td></tr>
+      <tr><td>最終点検日</td><td>直近の点検日</td></tr>
+      <tr><td>次回点検予定</td><td>次回点検日（アラートの基準日）</td></tr>
+      <tr><td>メモ</td><td>備考など</td></tr>
+    </table>
+    <h3>機材の編集・削除 <span class="badge-admin">管理者のみ</span></h3>
+    <ul>
+      <li>各行の「<strong>編集</strong>」ボタンから内容を変更できる</li>
+      <li>「<strong>削除</strong>」ボタンで削除（削除は取り消しできないため注意）</li>
+    </ul>
+  </div>
+
+  <!-- 4 -->
+  <div class="section" id="s4">
+    <h2><span class="num">4</span>イベント管理</h2>
+    <p>現場・イベントごとの機材リストと費用項目を管理する画面。</p>
+    <h3>イベントの作成 <span class="badge-admin">管理者のみ</span></h3>
+    <ol>
+      <li>「<strong>+ 追加</strong>」ボタンをタップ</li>
+      <li>イベント名・クライアント名・日程・ステータスを入力して「保存」</li>
+    </ol>
+    <h3>機材リストの追加 <span class="badge-admin">管理者のみ</span></h3>
+    <ol>
+      <li>左の一覧からイベントを選択</li>
+      <li>「機材リスト」セクションで機材・数量・日数を選んで「<strong>追加</strong>」</li>
+      <li>追加された機材の小計が自動計算される</li>
+    </ol>
+    <h3>費用項目の追加 <span class="badge-admin">管理者のみ</span></h3>
+    <ol>
+      <li>「費用項目」セクションのプリセットチップをタップして追加<br>
+        例：オペレーター、搬入作業、搬出作業、車両費 など</li>
+      <li>「<strong>+ カスタム</strong>」で任意の項目も追加可能</li>
+      <li>追加後は<strong>項目名・数量・日数・単価</strong>をその場で直接編集できる</li>
+    </ol>
+    <div class="tip">💡 機材小計＋費用小計の合計がリアルタイムで表示される。</div>
+    <h3>見積書への連携</h3>
+    <p>イベント詳細右上の「<strong>見積書 ↗</strong>」ボタンをタップすると、そのイベントの内容が見積書タブに自動反映される。</p>
+  </div>
+
+  <!-- 5 -->
+  <div class="section" id="s5">
+    <h2><span class="num">5</span>見積書</h2>
+    <p>イベントの内容をもとに見積書を作成・印刷する画面。</p>
+    <h3>見積書の作成</h3>
+    <ol>
+      <li>「<strong>イベント選択</strong>」でイベントを選ぶ（機材・費用が自動反映）</li>
+      <li>必要に応じて以下を編集（管理者のみ）</li>
+    </ol>
+    <table>
+      <tr><th>項目</th><th>説明</th></tr>
+      <tr><td>発行会社名</td><td>自社名</td></tr>
+      <tr><td>宛先</td><td>クライアント名</td></tr>
+      <tr><td>発行日</td><td>見積書の日付</td></tr>
+      <tr><td>消費税率%</td><td>デフォルト10%</td></tr>
+      <tr><td>備考</td><td>印刷時に記載される注意事項など</td></tr>
+    </table>
+    <h3>印刷・PDF保存</h3>
+    <ol>
+      <li>「<strong>印刷</strong>」ボタンをタップ</li>
+      <li>ブラウザの印刷ダイアログで「PDFとして保存」を選択するとPDFで保存できる</li>
+    </ol>
+    <div class="note">⚠️ 一般メンバーは見積書の閲覧・印刷のみ可能。内容の編集は管理者のみ。</div>
+  </div>
+
+  <!-- 6 -->
+  <div class="section" id="s6">
+    <h2><span class="num">6</span>メンテナンス</h2>
+    <p>機材の点検記録を管理する画面。管理者・一般メンバーともに記録の追加が可能。</p>
+    <h3>点検記録の追加 <span class="badge-both">全員</span></h3>
+    <ol>
+      <li>「<strong>機材</strong>」で対象機材を選択</li>
+      <li>「<strong>点検日</strong>」を入力（デフォルトは本日）</li>
+      <li>「<strong>状態</strong>」を選択（良好 / 要注意 / 要修理 / 故障）</li>
+      <li>必要に応じて「<strong>メモ</strong>」を入力</li>
+      <li>「<strong>記録</strong>」ボタンをタップ</li>
+    </ol>
+    <div class="tip">💡 点検記録を追加すると、機材マスタの状態と最終点検日が自動更新される。</div>
+    <h3>点検履歴の確認</h3>
+    <p>画面下部に新しい順で点検履歴が表示される。</p>
+  </div>
+
+  <!-- 7 -->
+  <div class="section" id="s7">
+    <h2><span class="num">7</span>設定 <span class="badge-admin">管理者のみ</span></h2>
+    <h3>費用項目プリセット管理</h3>
+    <ol>
+      <li>既存の項目名を直接編集可能</li>
+      <li>「<strong>削除</strong>」ボタンで不要な項目を削除</li>
+      <li>下部の入力欄から新しい項目を「<strong>追加</strong>」</li>
+      <li>「<strong>プリセットを保存</strong>」ボタンで変更を確定</li>
+    </ol>
+    <div class="note">⚠️ 保存するまで変更は反映されない。</div>
+    <h3>パスワード管理</h3>
+    <p><strong>管理者パスワードの変更</strong></p>
+    <ol>
+      <li>「現在のパスワード」を入力</li>
+      <li>「新しいパスワード」を入力</li>
+      <li>「管理者パスワードを変更」をタップ</li>
+    </ol>
+    <p><strong>一般メンバーパスワードの変更</strong></p>
+    <ol>
+      <li>「新しいパスワード」を入力</li>
+      <li>「変更」をタップ</li>
+    </ol>
+  </div>
+
+  <!-- 8 -->
+  <div class="section" id="s8">
+    <h2><span class="num">8</span>権限一覧</h2>
+    <table class="perm-table">
+      <tr><th>機能</th><th>管理者</th><th>一般メンバー</th></tr>
+      <tr><td>ダッシュボード閲覧</td><td>✅</td><td>✅</td></tr>
+      <tr><td>機材の閲覧</td><td>✅</td><td>✅</td></tr>
+      <tr><td>機材の追加・編集・削除</td><td>✅</td><td>❌</td></tr>
+      <tr><td>イベントの閲覧</td><td>✅</td><td>✅</td></tr>
+      <tr><td>イベントの追加・編集・削除</td><td>✅</td><td>❌</td></tr>
+      <tr><td>機材リスト・費用項目の追加・削除</td><td>✅</td><td>❌</td></tr>
+      <tr><td>見積書の閲覧・印刷</td><td>✅</td><td>✅</td></tr>
+      <tr><td>見積書の内容編集</td><td>✅</td><td>❌</td></tr>
+      <tr><td>メンテナンス記録の追加</td><td>✅</td><td>✅</td></tr>
+      <tr><td>費用項目プリセットの管理</td><td>✅</td><td>❌</td></tr>
+      <tr><td>パスワードの変更</td><td>✅</td><td>❌</td></tr>
+    </table>
+  </div>
+
+  <div style="text-align:center;font-size:12px;color:#999;margin-top:2rem">
+    FJN SoundStock — 2026年4月
+  </div>
+
+</div>
+</body>
+</html>
