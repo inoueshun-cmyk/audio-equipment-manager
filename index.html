@@ -310,8 +310,8 @@ function renderEvents(){
     <!-- 機材 -->
     <div style="font-weight:500;font-size:13px;margin-bottom:8px">機材リスト</div>
     ${isAdmin()?`<div style="display:flex;gap:8px;margin-bottom:0.75rem;flex-wrap:wrap;align-items:flex-end">
-      <div style="flex:1;min-width:160px"><label>機材</label><select id="item-eq"><option value="">選択</option>${eqOpts}</select></div>
-      <div><label>数量</label><input type="number" id="item-qty" value="1" min="1" style="width:60px"></div>
+      <div style="flex:1;min-width:160px"><label>機材</label><select id="item-eq" onchange="eqSelectChange('${selectedEventId}')"><option value="">選択</option>${eqOpts}</select></div>
+      <div><label>数量 <span id="item-qty-hint" style="color:#BA7517;font-size:11px"></span></label><input type="number" id="item-qty" value="1" min="1" style="width:60px"></div>
       <div><label>日数</label><input type="number" id="item-days" value="1" min="1" style="width:60px"></div>
       <button onclick="addItem('${selectedEventId}')">追加</button>
     </div>`:""}
@@ -372,7 +372,22 @@ window.addItem=function(evKey){
   const eqKey=document.getElementById("item-eq").value;
   if(!eqKey) return;
   const eq=equipment[eqKey];
-  push(ref(db,"events/"+evKey+"/items"),{name:eq.name,model:eq.model||"",qty:parseInt(document.getElementById("item-qty").value)||1,days:parseInt(document.getElementById("item-days").value)||1,unitPrice:eq.unitPrice||0});
+  const maxQty=eq.qty||1;
+  const qty=Math.min(parseInt(document.getElementById("item-qty").value)||1, maxQty);
+  if(qty<1){alert("数量は1以上を入力してください");return;}
+  push(ref(db,"events/"+evKey+"/items"),{name:eq.name,model:eq.model||"",qty,days:parseInt(document.getElementById("item-days").value)||1,unitPrice:eq.unitPrice||0,maxQty});
+}
+
+window.eqSelectChange=function(evKey){
+  const eqKey=document.getElementById("item-eq").value;
+  const qtyInput=document.getElementById("item-qty");
+  const hint=document.getElementById("item-qty-hint");
+  if(!eqKey){qtyInput.max="";if(hint)hint.textContent="";return;}
+  const eq=equipment[eqKey];
+  const max=eq.qty||1;
+  qtyInput.max=max;
+  if(qtyInput.value>max) qtyInput.value=max;
+  if(hint) hint.textContent="最大 "+max+"台";
 }
 window.rmItem=(evKey,ik)=>remove(ref(db,"events/"+evKey+"/items/"+ik));
 
