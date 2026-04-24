@@ -368,14 +368,21 @@ window.saveEv=function(key){
   closeModal();
 }
 window.delEv=function(key){if(confirm("削除しますか？")){remove(ref(db,"events/"+key));if(selectedEventId===key)selectedEventId=null;}}
+function getUsedQty(evKey, eqName){
+  const ev=events[evKey];
+  if(!ev||!ev.items) return 0;
+  return Object.values(ev.items).filter(i=>i.name===eqName).reduce((s,i)=>s+(i.qty||0),0);
+}
+
 window.addItem=function(evKey){
   const eqKey=document.getElementById("item-eq").value;
   if(!eqKey) return;
   const eq=equipment[eqKey];
-  const maxQty=eq.qty||1;
-  const qty=Math.min(parseInt(document.getElementById("item-qty").value)||1, maxQty);
-  if(qty<1){alert("数量は1以上を入力してください");return;}
-  push(ref(db,"events/"+evKey+"/items"),{name:eq.name,model:eq.model||"",qty,days:parseInt(document.getElementById("item-days").value)||1,unitPrice:eq.unitPrice||0,maxQty});
+  const used=getUsedQty(evKey,eq.name);
+  const available=Math.max(0,(eq.qty||0)-used);
+  if(available<=0){alert(`「${eq.name}」はすでに在庫数（${eq.qty}台）をすべて追加済みです`);return;}
+  const qty=Math.min(parseInt(document.getElementById("item-qty").value)||1,available);
+  push(ref(db,"events/"+evKey+"/items"),{name:eq.name,model:eq.model||"",qty,days:parseInt(document.getElementById("item-days").value)||1,unitPrice:eq.unitPrice||0});
 }
 
 window.eqSelectChange=function(evKey){
@@ -384,10 +391,12 @@ window.eqSelectChange=function(evKey){
   const hint=document.getElementById("item-qty-hint");
   if(!eqKey){qtyInput.max="";if(hint)hint.textContent="";return;}
   const eq=equipment[eqKey];
-  const max=eq.qty||1;
-  qtyInput.max=max;
-  if(qtyInput.value>max) qtyInput.value=max;
-  if(hint) hint.textContent="最大 "+max+"台";
+  const used=getUsedQty(evKey,eq.name);
+  const available=Math.max(0,(eq.qty||0)-used);
+  qtyInput.max=available;
+  qtyInput.value=Math.min(parseInt(qtyInput.value)||1,available);
+  if(hint) hint.textContent=available>0?`残り ${available}台`:`在庫なし`;
+  hint.style.color=available>0?"#BA7517":"#A32D2D";
 }
 window.rmItem=(evKey,ik)=>remove(ref(db,"events/"+evKey+"/items/"+ik));
 
