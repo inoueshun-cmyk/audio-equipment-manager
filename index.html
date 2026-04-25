@@ -75,7 +75,11 @@ td{padding:8px 10px;border-bottom:1px solid #eee;vertical-align:middle}
   .form-grid{grid-template-columns:1fr}
   th,td{padding:6px 8px}
 }
-@media print{.no-print{display:none!important}}
+@media print{
+  body>*{display:none!important}
+  #print-area{display:block!important;position:fixed;inset:0;padding:2rem;background:#fff}
+  #print-area *{color:#000!important;background:#fff!important;border-color:#ccc!important}
+}
 </style>
 </head>
 <body>
@@ -105,6 +109,7 @@ td{padding:8px 10px;border-bottom:1px solid #eee;vertical-align:middle}
   <div class="content" id="main-content"></div>
   <div class="bottom-nav"><div class="bottom-nav-inner" id="bottom-nav"></div></div>
 </div>
+<div id="print-area" style="display:none"></div>
 <div id="modal-container"></div>
 
 <script type="module">
@@ -434,14 +439,14 @@ function renderQuote(){
     <div><label>宛先</label><input value="${qClient}" oninput="qClient=this.value;renderQuote()" style="width:140px"></div>
     <div><label>発行日</label><input type="date" value="${qDate}" oninput="qDate=this.value;renderQuote()" style="width:140px"></div>
     <div><label>税率%</label><input type="number" value="${qTax}" oninput="qTax=parseInt(this.value)||0;renderQuote()" style="width:60px"></div>
-    <button style="font-weight:500" onclick="window.print()">印刷</button>
+    <button style="font-weight:500" onclick="printQuote()">印刷</button>
   </div>`:`<div class="no-print" style="display:flex;gap:8px;margin-bottom:1rem;flex-wrap:wrap;align-items:flex-end">
     <div style="flex:1;min-width:160px"><label>イベント</label><select onchange="qEvC(this.value)" style="width:100%"><option value="">選択</option>${evOpts}</select></div>
     <button style="font-weight:500" onclick="window.print()">印刷</button>
   </div>`;
 
   document.getElementById("main-content").innerHTML=`${controls}
-    <div class="card" style="max-width:720px">
+    <div class="print-area card" style="max-width:720px">
       <div style="display:flex;justify-content:space-between;margin-bottom:1.5rem;flex-wrap:wrap;gap:1rem">
         <div><div style="font-size:20px;font-weight:600;margin-bottom:6px">見 積 書</div><div style="font-size:14px">${qClient||"　　　　　"} 御中</div></div>
         <div style="text-align:right;font-size:12px;color:#666">
@@ -470,6 +475,15 @@ function renderQuote(){
     </div>`;
 }
 window.qEvC=function(k){quoteEventId=k||null;qClient=k&&events[k]?events[k].client||"":"";renderQuote();}
+
+window.printQuote=function(){
+  const el=document.querySelector(".print-area.card");
+  if(!el){alert("見積書を表示してから印刷してください");return;}
+  const printArea=document.getElementById("print-area");
+  printArea.innerHTML=el.outerHTML;
+  window.print();
+  printArea.innerHTML="";
+}
 
 // ===== MAINTENANCE =====
 function renderMaintenance(){
