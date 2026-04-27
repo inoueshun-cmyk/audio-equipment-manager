@@ -6,65 +6,79 @@
 <title>FJN SoundStock</title>
 <style>
 *{box-sizing:border-box;margin:0;padding:0}
-body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;font-size:14px;color:#1a1a1a;background:#f5f5f0;min-height:100vh}
+body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;font-size:14px;color:#1a1a1a;background:#f0f2f5;min-height:100vh}
 button{cursor:pointer;border:1px solid #ccc;background:#fff;border-radius:6px;padding:5px 12px;font-size:13px;-webkit-tap-highlight-color:transparent}
 button:hover{background:#f0f0f0}
-button:active{opacity:0.7}
 input,select,textarea{border:1px solid #ccc;border-radius:6px;padding:8px 10px;font-size:14px;width:100%;outline:none;-webkit-appearance:none}
 input:focus,select:focus,textarea:focus{border-color:#555}
-label{font-size:12px;color:#666;display:block;margin-bottom:3px}
-table{width:100%;border-collapse:collapse;font-size:13px}
-th{padding:8px 10px;text-align:left;color:#666;font-weight:500;border-bottom:1px solid #ddd;white-space:nowrap}
-td{padding:8px 10px;border-bottom:1px solid #eee;vertical-align:middle}
-.badge{display:inline-block;font-size:11px;padding:2px 8px;border-radius:4px;color:#fff}
-.nav{background:#1a1a1a;color:#fff;display:flex;align-items:center;padding:0 1rem;position:sticky;top:0;z-index:10;min-height:50px}
-.nav-title{font-weight:600;font-size:15px;letter-spacing:0.5px;margin-right:auto;white-space:nowrap}
-.nav-role{font-size:11px;background:rgba(255,255,255,0.15);padding:2px 8px;border-radius:10px;margin-right:8px}
+label{font-size:12px;color:#6b7a95;display:block;margin-bottom:3px}
+.nav{background:#0f1f3d;color:#fff;display:flex;align-items:center;padding:0 1rem;position:sticky;top:0;z-index:10;min-height:50px}
+.nav-title{font-weight:600;font-size:15px;letter-spacing:0.5px;margin-right:auto}
+.nav-user{font-size:11px;background:rgba(255,255,255,0.15);padding:2px 10px;border-radius:10px;margin-right:8px;color:#fff}
 .nav-logout{background:none;border:1px solid rgba(255,255,255,0.3);color:#fff;font-size:12px;padding:4px 10px}
-.nav-logout:hover{background:rgba(255,255,255,0.1)}
-.bottom-nav{display:none;position:fixed;bottom:0;left:0;right:0;background:#fff;border-top:1px solid #e0e0e0;z-index:10}
-.bottom-nav-inner{display:flex;justify-content:space-around}
-.bnav-btn{flex:1;background:none;border:none;border-radius:0;padding:8px 4px 6px;font-size:10px;color:#999;display:flex;flex-direction:column;align-items:center;gap:2px;border-top:2px solid transparent}
-.bnav-btn.active{color:#1a1a1a;border-top-color:#1a1a1a}
-.bnav-icon{font-size:18px;line-height:1}
-.top-nav{background:#fff;border-bottom:1px solid #e0e0e0;display:flex;padding:0 1rem;gap:1rem;overflow-x:auto;-webkit-overflow-scrolling:touch}
+.top-nav{background:#e8edf4;border-bottom:1px solid #e2e6ec;display:flex;padding:0 1rem;overflow-x:auto}
 .top-nav::-webkit-scrollbar{display:none}
-.tnav-btn{background:none;border:none;border-bottom:2px solid transparent;padding:0.6rem 0;font-size:13px;color:#666;border-radius:0;white-space:nowrap;flex-shrink:0}
-.tnav-btn:hover{background:none;color:#1a1a1a}
-.tnav-btn.active{color:#1a1a1a;border-bottom-color:#1a1a1a;font-weight:500}
+.tnav-btn{background:none;border:none;border-bottom:2px solid transparent;padding:0.6rem 0;font-size:13px;color:#4a5568;border-radius:0;white-space:nowrap;flex-shrink:0;margin-right:1rem}
+.tnav-btn.active{color:#0f1f3d;border-bottom-color:#4a8fe8;font-weight:600}
+.bottom-nav{display:none;position:fixed;bottom:0;left:0;right:0;background:#fff;border-top:1px solid #e2e6ec;z-index:10}
+.bottom-nav-inner{display:flex}
+.bnav-btn{flex:1;background:none;border:none;border-radius:0;padding:8px 4px 6px;font-size:10px;color:#6b7a95;display:flex;flex-direction:column;align-items:center;gap:2px;border-top:2px solid transparent}
+.bnav-btn.active{color:#0f1f3d;border-top-color:#4a8fe8}
+.bnav-icon{font-size:18px;line-height:1}
 .content{padding:1rem;max-width:1100px;margin:0 auto;padding-bottom:80px}
-.card{background:#fff;border:1px solid #e0e0e0;border-radius:10px;padding:1rem;margin-bottom:1rem}
-.metric-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:10px;margin-bottom:1.25rem}
-.metric{background:#f5f5f0;border-radius:8px;padding:0.875rem}
-.metric-label{font-size:11px;color:#666;margin-bottom:4px}
-.metric-val{font-size:20px;font-weight:500}
-.alert-box{background:#faeeda;border:1px solid #fac775;border-radius:8px;padding:0.875rem;margin-bottom:1rem}
-.alert-title{font-weight:500;font-size:13px;color:#633806;margin-bottom:6px}
+.card{background:#fff;border:0.5px solid #e2e6ec;border-radius:8px;padding:1rem;margin-bottom:1rem}
+.card-title{font-size:11px;font-weight:600;color:#6b7a95;margin-bottom:0.75rem;text-transform:uppercase;letter-spacing:0.6px}
+.metric-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(130px,1fr));gap:8px;margin-bottom:1rem}
+.metric{background:#fff;border:0.5px solid #e2e6ec;border-radius:8px;padding:0.75rem}
+.metric-label{font-size:10px;color:#6b7a95;margin-bottom:3px}
+.metric-val{font-size:18px;font-weight:600;color:#0f1f3d}
+.alert-box{background:#faeeda;border-left:3px solid #fac775;border-radius:0 6px 6px 0;padding:0.75rem 1rem;margin-bottom:1rem;font-size:13px;color:#633806}
 .modal-bg{position:fixed;inset:0;background:rgba(0,0,0,0.5);display:flex;align-items:flex-end;justify-content:center;z-index:100}
 .modal{background:#fff;border-radius:16px 16px 0 0;padding:1.25rem;width:100%;max-height:90vh;overflow-y:auto}
 .modal-title{font-weight:500;font-size:15px;margin-bottom:1rem}
 .form-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:10px}
 .form-row{margin-bottom:10px}
 .modal-footer{display:flex;justify-content:flex-end;gap:8px;margin-top:1rem}
-.ev-item{background:#fff;border:1px solid #e0e0e0;border-radius:8px;padding:10px 12px;cursor:pointer;margin-bottom:8px}
-.ev-item.active{background:#f5f5f0;border-color:#999}
-.ev-name{font-weight:500;font-size:13px}
-.ev-meta{font-size:12px;color:#666;margin-top:2px}
-.status-dot{width:8px;height:8px;border-radius:50%;display:inline-block;margin-right:6px}
+.badge{display:inline-block;font-size:10px;padding:2px 8px;border-radius:3px;color:#fff;font-weight:500}
+.cat-pill{display:inline-block;width:52px;text-align:center;background:#f0f2f5;border:0.5px solid #e2e6ec;color:#6b7a95;font-size:10px;padding:2px 0;border-radius:3px}
 .table-wrap{overflow-x:auto;-webkit-overflow-scrolling:touch}
-.preset-chip{display:inline-block;background:#f0f0f0;border:1px solid #ddd;border-radius:16px;padding:4px 12px;font-size:12px;cursor:pointer;margin:3px;white-space:nowrap}
-.preset-chip:hover{background:#e0e0e0}
-.section-title{font-weight:500;font-size:14px;margin:1rem 0 0.5rem;padding-top:1rem;border-top:1px solid #eee}
+.table-wrap::-webkit-scrollbar{height:4px}
+.table-wrap::-webkit-scrollbar-thumb{background:#b0b8c6;border-radius:2px}
+table{width:100%;border-collapse:collapse;font-size:13px;min-width:500px}
+th{padding:7px 12px;text-align:left;color:#6b7a95;font-weight:500;font-size:11px;border-bottom:0.5px solid #e2e6ec;white-space:nowrap;background:#f0f2f5}
+td{padding:8px 12px;color:#0f1f3d;border-bottom:0.5px solid #e2e6ec;white-space:nowrap}
+tr:last-child td{border-bottom:none}
+tr:hover td{background:#f0f2f5}
+.action-btn{border:0.5px solid #e2e6ec;background:none;color:#0f1f3d;font-size:11px;padding:2px 8px;border-radius:4px;cursor:pointer;margin-right:3px}
+.action-btn.del{color:#a32d2d;border-color:transparent}
+.ev-item{background:#fff;border:0.5px solid #e2e6ec;border-radius:8px;padding:10px 12px;cursor:pointer;margin-bottom:8px}
+.ev-item.active{background:#f0f2f5;border-color:#999}
+.preset-chip{display:inline-block;background:#f0f2f5;border:0.5px solid #e2e6ec;border-radius:16px;padding:4px 12px;font-size:12px;cursor:pointer;margin:3px;white-space:nowrap;color:#0f1f3d}
+.preset-chip:hover{background:#e2e6ec}
 .inline-input{border:none;border-bottom:1px solid #ccc;border-radius:0;padding:2px 4px;font-size:13px;width:100%;background:transparent}
-.inline-input:focus{border-bottom-color:#555;outline:none}
-.login-wrap{min-height:100vh;display:flex;align-items:center;justify-content:center;padding:1rem;background:#1a1a1a}
+.perm-toggle{display:flex;align-items:center;justify-content:space-between;padding:8px 0;border-bottom:0.5px solid #f0f2f5;font-size:13px}
+.perm-toggle:last-child{border-bottom:none}
+.toggle{position:relative;width:40px;height:22px;flex-shrink:0}
+.toggle input{opacity:0;width:0;height:0}
+.toggle-slider{position:absolute;inset:0;background:#ccc;border-radius:11px;transition:0.2s;cursor:pointer}
+.toggle-slider:before{content:"";position:absolute;width:16px;height:16px;left:3px;bottom:3px;background:#fff;border-radius:50%;transition:0.2s}
+.toggle input:checked+.toggle-slider{background:#4a8fe8}
+.toggle input:checked+.toggle-slider:before{transform:translateX(18px)}
+.member-card{background:#fff;border:0.5px solid #e2e6ec;border-radius:8px;padding:0.875rem;margin-bottom:0.75rem}
+.member-name{font-weight:600;font-size:14px;color:#0f1f3d}
+.member-role{font-size:11px;color:#6b7a95;margin-top:2px}
+.pw-display{font-family:monospace;background:#f0f2f5;border-radius:4px;padding:3px 8px;font-size:13px;letter-spacing:1px}
+.login-wrap{min-height:100vh;display:flex;align-items:center;justify-content:center;padding:1rem;background:#0f1f3d}
 .login-card{background:#fff;border-radius:14px;padding:2rem;width:100%;max-width:360px}
-.login-logo{font-size:22px;font-weight:700;letter-spacing:1px;margin-bottom:4px}
+.login-logo{font-size:22px;font-weight:700;letter-spacing:1px;margin-bottom:4px;color:#0f1f3d}
 .login-sub{font-size:12px;color:#999;margin-bottom:1.5rem}
 .login-err{color:#c00;font-size:13px;margin-top:8px}
+.primary-btn{background:#0f1f3d;color:#fff;border:none;border-radius:6px;padding:8px 16px;font-size:13px;cursor:pointer;font-weight:500}
+.primary-btn:hover{background:#162850}
+.danger-btn{background:none;color:#a32d2d;border:1px solid #a32d2d;border-radius:6px;padding:5px 12px;font-size:12px;cursor:pointer}
 @media(min-width:640px){
   .modal-bg{align-items:center}
-  .modal{border-radius:12px;width:540px;max-height:85vh}
+  .modal{border-radius:12px;width:520px;max-height:85vh}
   .bottom-nav{display:none!important}
   .top-nav{display:flex}
   .content{padding:1.25rem;padding-bottom:1.25rem}
@@ -73,12 +87,10 @@ td{padding:8px 10px;border-bottom:1px solid #eee;vertical-align:middle}
   .bottom-nav{display:block}
   .top-nav{display:none}
   .form-grid{grid-template-columns:1fr}
-  th,td{padding:6px 8px}
 }
 @media print{
   body>*{display:none!important}
   #print-area{display:block!important;position:fixed;inset:0;padding:2rem;background:#fff}
-  #print-area *{color:#000!important;background:#fff!important;border-color:#ccc!important}
 }
 </style>
 </head>
@@ -88,13 +100,15 @@ td{padding:8px 10px;border-bottom:1px solid #eee;vertical-align:middle}
   <div class="login-card">
     <div class="login-logo">FJN SoundStock</div>
     <div class="login-sub">音響機材管理システム</div>
-    <div class="form-row"><label>ロール</label>
-      <select id="login-role"><option value="admin">管理者</option><option value="member">一般メンバー</option></select>
+    <div class="form-row">
+      <label>ユーザーを選択</label>
+      <select id="login-user"><option value="">選択してください</option></select>
     </div>
-    <div class="form-row"><label>パスワード</label>
+    <div class="form-row">
+      <label>パスワード</label>
       <input type="password" id="login-pass" placeholder="パスワードを入力" onkeydown="if(event.key==='Enter')doLogin()">
     </div>
-    <button onclick="doLogin()" style="width:100%;padding:10px;background:#1a1a1a;color:#fff;border:none;font-size:15px;font-weight:500;border-radius:8px;margin-top:4px">ログイン</button>
+    <button onclick="doLogin()" style="width:100%;padding:10px;background:#0f1f3d;color:#fff;border:none;font-size:15px;font-weight:500;border-radius:8px;margin-top:4px">ログイン</button>
     <div id="login-err" class="login-err"></div>
   </div>
 </div>
@@ -102,13 +116,14 @@ td{padding:8px 10px;border-bottom:1px solid #eee;vertical-align:middle}
 <div id="app-screen" style="display:none">
   <div class="nav">
     <span class="nav-title">FJN SoundStock</span>
-    <span class="nav-role" id="role-badge"></span>
+    <span class="nav-user" id="nav-user"></span>
     <button class="nav-logout" onclick="doLogout()">ログアウト</button>
   </div>
   <div class="top-nav" id="top-nav"></div>
   <div class="content" id="main-content"></div>
   <div class="bottom-nav"><div class="bottom-nav-inner" id="bottom-nav"></div></div>
 </div>
+
 <div id="print-area" style="display:none"></div>
 <div id="modal-container"></div>
 
@@ -133,118 +148,202 @@ const CATS = ["入力系","処理系","出力系","周辺"];
 const STATUSES = ["良好","要注意","要修理","故障"];
 const SC = {"良好":"#1D9E75","要注意":"#BA7517","要修理":"#D85A30","故障":"#A32D2D"};
 const TODAY = new Date().toISOString().slice(0,10);
-const DEFAULT_PRESETS = ["オペレーター","アシスタント","搬入作業","搬出作業","車両費","駐車場費","雑費"];
 
-let equipment={}, events={}, maintenance={}, passwords={}, presets=[];
+// 権限定義
+const PERMS = [
+  {key:"eq_edit", label:"機材の追加・編集・削除"},
+  {key:"ev_edit", label:"イベントの追加・編集・削除"},
+  {key:"ev_items", label:"機材リスト・費用項目の編集"},
+  {key:"quote_edit", label:"見積書の作成・編集"},
+  {key:"maintenance", label:"メンテナンス記録の追加"},
+];
+
+let equipment={}, events={}, maintenance={}, members={}, presets=[];
 let currentTab="dashboard", selectedEventId=null, quoteEventId=null;
-let currentRole=null;
-const isAdmin=()=>currentRole==="admin";
+let currentUser=null; // {id, name, role, permissions:{...}}
+
+const isAdmin = () => currentUser?.role === "admin";
+const hasPerm = (key) => isAdmin() || currentUser?.permissions?.[key];
 
 // ===== INIT =====
 async function initDefaults() {
-  const pw = await get(ref(db,"passwords"));
-  if(!pw.exists()) await set(ref(db,"passwords"),{admin:"admin123",member:"0000"});
+  const snap = await get(ref(db,"members"));
+  if(!snap.exists()) {
+    await set(ref(db,"members"), {
+      admin: {name:"管理者", role:"admin", password:"admin123", permissions:{}}
+    });
+  }
   const pr = await get(ref(db,"presets"));
-  if(!pr.exists()) await set(ref(db,"presets"), DEFAULT_PRESETS.reduce((o,p,i)=>(o[i]=p,o),{}));
+  if(!pr.exists()) {
+    const defaults = ["オペレーター","アシスタント","搬入作業","搬出作業","車両費","駐車場費","雑費"];
+    await set(ref(db,"presets"), defaults.reduce((o,p,i)=>(o[i]=p,o),{}));
+  }
 }
 
-onValue(ref(db,"passwords"), s=>{ passwords=s.val()||{admin:"admin123",member:"0000"}; });
-onValue(ref(db,"equipment"), s=>{ equipment=s.val()||{}; renderCurrentTab(); });
-onValue(ref(db,"events"), s=>{ events=s.val()||{}; renderCurrentTab(); });
-onValue(ref(db,"maintenance"), s=>{ maintenance=s.val()||{}; renderCurrentTab(); });
-onValue(ref(db,"presets"), s=>{ presets=s.val()?Object.values(s.val()):DEFAULT_PRESETS; renderCurrentTab(); });
+onValue(ref(db,"members"), s => {
+  members = s.val() || {};
+  updateLoginSelect();
+  renderCurrentTab();
+});
+onValue(ref(db,"equipment"), s => { equipment=s.val()||{}; renderCurrentTab(); });
+onValue(ref(db,"events"), s => { events=s.val()||{}; renderCurrentTab(); });
+onValue(ref(db,"maintenance"), s => { maintenance=s.val()||{}; renderCurrentTab(); });
+onValue(ref(db,"presets"), s => { presets=s.val()?Object.values(s.val()):[]; renderCurrentTab(); });
+
+function updateLoginSelect() {
+  const sel = document.getElementById("login-user");
+  if(!sel) return;
+  const cur = sel.value;
+  sel.innerHTML = '<option value="">選択してください</option>';
+  Object.entries(members).forEach(([id,m]) => {
+    const opt = document.createElement("option");
+    opt.value = id;
+    opt.textContent = m.name + (m.role==="admin" ? "（管理者）" : "");
+    sel.appendChild(opt);
+  });
+  if(cur) sel.value = cur;
+}
 
 // ===== LOGIN =====
 window.doLogin = async function() {
-  const role=document.getElementById("login-role").value;
-  const pass=document.getElementById("login-pass").value;
-  const snap=await get(ref(db,"passwords"));
-  const pw=snap.val()||{admin:"admin123",member:"0000"};
-  if(pass===(role==="admin"?pw.admin:pw.member)) {
-    currentRole=role;
-    document.getElementById("login-screen").style.display="none";
-    document.getElementById("app-screen").style.display="";
-    document.getElementById("role-badge").textContent=role==="admin"?"管理者":"一般メンバー";
-    buildNav(); showTab("dashboard");
-  } else document.getElementById("login-err").textContent="パスワードが違います";
+  const uid = document.getElementById("login-user").value;
+  const pass = document.getElementById("login-pass").value;
+  if(!uid) { document.getElementById("login-err").textContent = "ユーザーを選択してください"; return; }
+  const snap = await get(ref(db,"members/"+uid));
+  if(!snap.exists()) { document.getElementById("login-err").textContent = "ユーザーが見つかりません"; return; }
+  const m = snap.val();
+  if(pass !== m.password) { document.getElementById("login-err").textContent = "パスワードが違います"; return; }
+  currentUser = {id:uid, name:m.name, role:m.role, permissions:m.permissions||{}};
+  document.getElementById("login-screen").style.display = "none";
+  document.getElementById("app-screen").style.display = "";
+  document.getElementById("nav-user").textContent = m.name + (m.role==="admin"?"（管理者）":"");
+  buildNav();
+  showTab("dashboard");
 }
-window.doLogout=function(){
-  currentRole=null;
-  document.getElementById("login-screen").style.display="";
-  document.getElementById("app-screen").style.display="none";
-  document.getElementById("login-pass").value="";
-  document.getElementById("login-err").textContent="";
+
+window.doLogout = function() {
+  currentUser = null;
+  document.getElementById("login-screen").style.display = "";
+  document.getElementById("app-screen").style.display = "none";
+  document.getElementById("login-pass").value = "";
+  document.getElementById("login-err").textContent = "";
 }
 
 // ===== NAV =====
-const TABS_ADMIN=[{id:"dashboard",icon:"🏠",label:"ホーム"},{id:"equipment",icon:"🎛",label:"機材"},{id:"events",icon:"📅",label:"イベント"},{id:"quote",icon:"📄",label:"見積"},{id:"maintenance",icon:"🔧",label:"点検"},{id:"settings",icon:"⚙️",label:"設定"}];
-const TABS_MEMBER=[{id:"dashboard",icon:"🏠",label:"ホーム"},{id:"equipment",icon:"🎛",label:"機材"},{id:"events",icon:"📅",label:"イベント"},{id:"quote",icon:"📄",label:"見積"},{id:"maintenance",icon:"🔧",label:"点検"}];
-
-function buildNav(){
-  const tabs=isAdmin()?TABS_ADMIN:TABS_MEMBER;
-  document.getElementById("top-nav").innerHTML=tabs.map(t=>`<button class="tnav-btn" data-tab="${t.id}" onclick="showTab('${t.id}')">${t.label}</button>`).join("");
-  document.getElementById("bottom-nav").innerHTML=tabs.map(t=>`<button class="bnav-btn" data-tab="${t.id}" onclick="showTab('${t.id}')"><span class="bnav-icon">${t.icon}</span>${t.label}</button>`).join("");
+function buildNav() {
+  const tabs = [
+    {id:"dashboard", icon:"🏠", label:"ホーム"},
+    {id:"equipment", icon:"🎛", label:"機材"},
+    {id:"events", icon:"📅", label:"イベント"},
+    {id:"quote", icon:"📄", label:"見積"},
+    {id:"maintenance", icon:"🔧", label:"点検"},
+    {id:"mypage", icon:"👤", label:"マイページ"},
+    ...(isAdmin() ? [{id:"settings", icon:"⚙️", label:"設定"}] : []),
+  ];
+  document.getElementById("top-nav").innerHTML = tabs.map(t =>
+    `<button class="tnav-btn" data-tab="${t.id}" onclick="showTab('${t.id}')">${t.label}</button>`
+  ).join("");
+  document.getElementById("bottom-nav").innerHTML = tabs.map(t =>
+    `<button class="bnav-btn" data-tab="${t.id}" onclick="showTab('${t.id}')"><span class="bnav-icon">${t.icon}</span>${t.label}</button>`
+  ).join("");
 }
-window.showTab=function(tab){
-  currentTab=tab;
-  document.querySelectorAll("[data-tab]").forEach(b=>b.classList.toggle("active",b.dataset.tab===tab));
+
+window.showTab = function(tab) {
+  currentTab = tab;
+  document.querySelectorAll("[data-tab]").forEach(b => b.classList.toggle("active", b.dataset.tab===tab));
   renderCurrentTab();
 }
-function renderCurrentTab(){
-  if(!currentRole) return;
-  if(currentTab==="dashboard") renderDashboard();
-  else if(currentTab==="equipment") renderEquipment();
-  else if(currentTab==="events") renderEvents();
-  else if(currentTab==="quote") renderQuote();
-  else if(currentTab==="maintenance") renderMaintenance();
-  else if(currentTab==="settings"&&isAdmin()) renderSettings();
+
+function renderCurrentTab() {
+  if(!currentUser) return;
+  const m = {
+    dashboard: renderDashboard,
+    equipment: renderEquipment,
+    events: renderEvents,
+    quote: renderQuote,
+    maintenance: renderMaintenance,
+    mypage: renderMyPage,
+    settings: renderSettings,
+  };
+  if(m[currentTab]) m[currentTab]();
 }
 
 // ===== DASHBOARD =====
-function renderDashboard(){
-  const eqArr=Object.values(equipment);
-  const totalAsset=eqArr.reduce((s,e)=>s+(e.qty||0)*(e.unitPrice||0),0);
-  const needRepair=eqArr.filter(e=>e.status==="要修理"||e.status==="故障").length;
-  const upcoming=Object.values(events).filter(e=>e.date>=TODAY).length;
-  const alerts=eqArr.filter(e=>e.nextCheck&&e.nextCheck<=TODAY);
-  const catBars=CATS.map(c=>{const cnt=eqArr.filter(e=>e.cat===c).reduce((s,e)=>s+(e.qty||0),0);return`<div style="display:flex;align-items:center;gap:8px;margin-bottom:8px"><div style="width:64px;font-size:12px;color:#666">${c}</div><div style="flex:1;background:#eee;border-radius:4px;height:10px"><div style="width:${Math.min(100,cnt*8)}%;background:#378ADD;border-radius:4px;height:10px"></div></div><div style="font-size:12px;width:20px;text-align:right">${cnt}</div></div>`;}).join("");
-  const statusRows=STATUSES.map(s=>{const cnt=eqArr.filter(e=>e.status===s).length;return`<div style="display:flex;justify-content:space-between;padding:6px 0;border-bottom:1px solid #eee"><span><span class="status-dot" style="background:${SC[s]}"></span>${s}</span><span style="font-weight:500">${cnt}件</span></div>`;}).join("");
-  document.getElementById("main-content").innerHTML=`
+function renderDashboard() {
+  const eqArr = Object.values(equipment);
+  const totalAsset = eqArr.reduce((s,e)=>s+(e.qty||0)*(e.unitPrice||0),0);
+  const needRepair = eqArr.filter(e=>e.status==="要修理"||e.status==="故障").length;
+  const upcoming = Object.values(events).filter(e=>e.date>=TODAY).length;
+  const alerts = eqArr.filter(e=>e.nextCheck&&e.nextCheck<=TODAY);
+
+  const catBars = CATS.map(c=>{
+    const cnt = eqArr.filter(e=>e.cat===c).reduce((s,e)=>s+(e.qty||0),0);
+    return `<div style="display:flex;align-items:center;gap:8px;margin-bottom:8px">
+      <div style="width:52px;font-size:11px;color:#6b7a95">${c}</div>
+      <div style="flex:1;background:#e2e6ec;border-radius:3px;height:7px">
+        <div style="width:${Math.min(100,cnt*8)}%;background:linear-gradient(90deg,#162850,#4a8fe8);border-radius:3px;height:7px"></div>
+      </div>
+      <div style="font-size:11px;width:20px;text-align:right">${cnt}</div>
+    </div>`;
+  }).join("");
+
+  const statusRows = STATUSES.map(s=>{
+    const cnt = eqArr.filter(e=>e.status===s).length;
+    return `<div style="display:flex;justify-content:space-between;padding:5px 0;border-bottom:0.5px solid #f0f2f5">
+      <span style="font-size:12px"><span style="width:7px;height:7px;border-radius:50%;background:${SC[s]};display:inline-block;margin-right:5px"></span>${s}</span>
+      <span style="font-size:12px;font-weight:600">${cnt}件</span>
+    </div>`;
+  }).join("");
+
+  document.getElementById("main-content").innerHTML = `
     <div class="metric-grid">
       <div class="metric"><div class="metric-label">総機材種類</div><div class="metric-val">${eqArr.length}種</div></div>
-      <div class="metric"><div class="metric-label">資産総額</div><div class="metric-val" style="font-size:15px">¥${totalAsset.toLocaleString()}</div></div>
+      <div class="metric"><div class="metric-label">資産総額</div><div class="metric-val" style="font-size:14px">¥${totalAsset.toLocaleString()}</div></div>
       <div class="metric"><div class="metric-label">要対応</div><div class="metric-val" style="color:${needRepair>0?"#D85A30":"inherit"}">${needRepair}件</div></div>
       <div class="metric"><div class="metric-label">今後のイベント</div><div class="metric-val">${upcoming}件</div></div>
       <div class="metric"><div class="metric-label">点検アラート</div><div class="metric-val" style="color:${alerts.length>0?"#BA7517":"inherit"}">${alerts.length}件</div></div>
     </div>
-    ${alerts.length?`<div class="alert-box"><div class="alert-title">点検期限アラート（${alerts.length}件）</div>${alerts.map(e=>`<div style="font-size:12px;color:#633806;margin-bottom:3px">・${e.name}（${e.model||""}）— 期限: ${e.nextCheck}</div>`).join("")}</div>`:""}
+    ${alerts.length ? `<div class="alert-box"><strong>点検期限アラート（${alerts.length}件）</strong>${alerts.map(e=>`<div style="margin-top:3px">・${e.name}（${e.model||""}）— 期限: ${e.nextCheck}</div>`).join("")}</div>` : ""}
     <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:1rem">
-      <div class="card"><div style="font-weight:500;margin-bottom:10px">カテゴリ別機材数</div>${catBars}</div>
-      <div class="card"><div style="font-weight:500;margin-bottom:10px">状態サマリー</div>${statusRows}</div>
+      <div class="card"><div class="card-title">カテゴリ別機材数</div>${catBars}</div>
+      <div class="card"><div class="card-title">状態サマリー</div>${statusRows}</div>
     </div>`;
 }
 
 // ===== EQUIPMENT =====
-let eqFilter="",eqCatFilter="すべて";
-function renderEquipment(){
-  const filtered=Object.entries(equipment).filter(([k,e])=>{
-    const q=eqFilter.toLowerCase();
-    return(!q||(e.name||"").includes(q)||(e.maker||"").includes(q)||(e.model||"").includes(q))&&(eqCatFilter==="すべて"||e.cat===eqCatFilter);
+let eqFilter="", eqCatFilter="すべて";
+function renderEquipment() {
+  const filtered = Object.entries(equipment).filter(([k,e])=>{
+    const q = eqFilter.toLowerCase();
+    return (!q||(e.name||"").includes(q)||(e.maker||"").includes(q)||(e.model||"").includes(q)) && (eqCatFilter==="すべて"||e.cat===eqCatFilter);
   });
-  const rows=filtered.map(([k,e])=>`<tr><td style="font-weight:500">${e.name||""}</td><td style="color:#666">${e.maker||""}</td><td style="color:#666">${e.model||""}</td><td><span style="background:#f0f0f0;padding:2px 6px;border-radius:4px;font-size:11px">${e.cat||""}</span></td><td style="text-align:center">${e.qty||0}</td><td style="text-align:right">¥${(e.unitPrice||0).toLocaleString()}</td><td><span class="badge" style="background:${SC[e.status]||"#999"}">${e.status||""}</span></td><td style="color:#666">${e.location||""}</td>${isAdmin()?`<td><button style="font-size:11px;padding:2px 6px;margin-right:3px" onclick="openEqModal('${k}')">編集</button><button style="font-size:11px;padding:2px 6px;color:#c00" onclick="delEq('${k}')">削除</button></td>`:"<td></td>"}</tr>`).join("");
-  document.getElementById("main-content").innerHTML=`
+  const rows = filtered.map(([k,e])=>`<tr>
+    <td style="font-weight:500">${e.name||""}</td>
+    <td style="color:#6b7a95">${e.maker||""}</td>
+    <td style="color:#6b7a95">${e.model||""}</td>
+    <td><span class="cat-pill">${e.cat||""}</span></td>
+    <td style="text-align:center">${e.qty||0}</td>
+    <td style="text-align:right">¥${(e.unitPrice||0).toLocaleString()}</td>
+    <td><span class="badge" style="background:${SC[e.status]||"#999"}">${e.status||""}</span></td>
+    <td style="color:#6b7a95">${e.location||""}</td>
+    ${hasPerm("eq_edit") ? `<td><button class="action-btn" onclick="openEqModal('${k}')">編集</button><button class="action-btn del" onclick="delEq('${k}')">削除</button></td>` : "<td></td>"}
+  </tr>`).join("");
+
+  document.getElementById("main-content").innerHTML = `
     <div style="display:flex;gap:8px;margin-bottom:1rem;flex-wrap:wrap">
       <input placeholder="機材名・型番で検索" value="${eqFilter}" oninput="eqFC(this.value)" style="flex:1;min-width:140px">
       <select onchange="eqCC(this.value)" style="width:110px">${["すべて",...CATS].map(c=>`<option ${eqCatFilter===c?"selected":""}>${c}</option>`).join("")}</select>
-      ${isAdmin()?`<button onclick="openEqModal(null)">+ 追加</button>`:""}
+      ${hasPerm("eq_edit") ? `<button class="primary-btn" onclick="openEqModal(null)">+ 追加</button>` : ""}
     </div>
-    <div class="table-wrap"><table><thead><tr><th>機材名</th><th>メーカー</th><th>型番</th><th>カテゴリ</th><th>数量</th><th>単価</th><th>状態</th><th>保管場所</th><th></th></tr></thead><tbody>${rows||`<tr><td colspan="9" style="text-align:center;color:#999;padding:2rem">機材が登録されていません</td></tr>`}</tbody></table></div>`;
+    <div class="table-wrap"><table>
+      <thead><tr><th>機材名</th><th>メーカー</th><th>型番</th><th>カテゴリ</th><th>数量</th><th>単価</th><th>状態</th><th>保管場所</th><th></th></tr></thead>
+      <tbody>${rows||`<tr><td colspan="9" style="text-align:center;color:#999;padding:2rem">機材が登録されていません</td></tr>`}</tbody>
+    </table></div>`;
 }
-window.eqFC=v=>{eqFilter=v;renderEquipment()};
-window.eqCC=v=>{eqCatFilter=v;renderEquipment()};
-window.openEqModal=function(key){
-  if(!isAdmin()) return;
-  const e=key?equipment[key]:{};
+window.eqFC = v => { eqFilter=v; renderEquipment(); };
+window.eqCC = v => { eqCatFilter=v; renderEquipment(); };
+window.openEqModal = function(key) {
+  const e = key ? equipment[key] : {};
   showModal(`<div class="modal-title">${key?"機材編集":"機材追加"}</div>
     <div class="form-grid">
       ${[["name","機材名"],["maker","メーカー"],["model","型番"],["location","保管場所"],["serial","シリアル番号"]].map(([k,l])=>`<div><label>${l}</label><input id="eq-${k}" value="${e[k]||""}"></div>`).join("")}
@@ -256,104 +355,102 @@ window.openEqModal=function(key){
       <div><label>次回点検予定</label><input type="date" id="eq-nextCheck" value="${e.nextCheck||""}"></div>
     </div>
     <div class="form-row"><label>メモ</label><textarea id="eq-notes" style="height:60px">${e.notes||""}</textarea></div>
-    <div class="modal-footer"><button onclick="closeModal()">キャンセル</button><button style="font-weight:500" onclick="saveEq('${key||""}')">保存</button></div>`);
+    <div class="modal-footer"><button onclick="closeModal()">キャンセル</button><button class="primary-btn" onclick="saveEq('${key||""}')">保存</button></div>`);
 }
-window.saveEq=function(key){
-  const d={name:V("eq-name"),maker:V("eq-maker"),model:V("eq-model"),location:V("eq-location"),serial:V("eq-serial"),cat:V("eq-cat"),status:V("eq-status"),qty:parseInt(V("eq-qty"))||1,unitPrice:parseInt(V("eq-unitPrice"))||0,lastCheck:V("eq-lastCheck"),nextCheck:V("eq-nextCheck"),notes:V("eq-notes")};
+window.saveEq = function(key) {
+  const d = {name:V("eq-name"),maker:V("eq-maker"),model:V("eq-model"),location:V("eq-location"),serial:V("eq-serial"),cat:V("eq-cat"),status:V("eq-status"),qty:parseInt(V("eq-qty"))||1,unitPrice:parseInt(V("eq-unitPrice"))||0,lastCheck:V("eq-lastCheck"),nextCheck:V("eq-nextCheck"),notes:V("eq-notes")};
   if(!d.name) return;
-  key?set(ref(db,"equipment/"+key),d):push(ref(db,"equipment"),d);
+  key ? set(ref(db,"equipment/"+key),d) : push(ref(db,"equipment"),d);
   closeModal();
 }
-window.delEq=function(key){if(confirm("削除しますか？"))remove(ref(db,"equipment/"+key));}
+window.delEq = function(key) { if(confirm("削除しますか？")) remove(ref(db,"equipment/"+key)); }
 
 // ===== EVENTS =====
-function renderEvents(){
-  const evArr=Object.entries(events);
-  const list=evArr.map(([k,e])=>`
+function getUsedQty(evKey, eqName) {
+  const ev = events[evKey];
+  if(!ev||!ev.items) return 0;
+  return Object.values(ev.items).filter(i=>i.name===eqName).reduce((s,i)=>s+(i.qty||0),0);
+}
+
+function renderEvents() {
+  const evArr = Object.entries(events);
+  const list = evArr.map(([k,e])=>`
     <div class="ev-item ${selectedEventId===k?"active":""}" onclick="selEv('${k}')">
-      <div class="ev-name">${e.name||""}</div>
-      <div class="ev-meta">${e.date||""}${e.endDate&&e.endDate!==e.date?" 〜 "+e.endDate:""} ／ ${e.client||""}</div>
+      <div style="font-weight:500;font-size:13px">${e.name||""}</div>
+      <div style="font-size:11px;color:#6b7a95;margin-top:2px">${e.date||""}${e.endDate&&e.endDate!==e.date?" 〜 "+e.endDate:""} ／ ${e.client||""}</div>
       <div style="display:flex;justify-content:space-between;margin-top:6px;align-items:center">
-        <span style="font-size:11px;background:#f0f0f0;padding:1px 6px;border-radius:4px">${e.status||""}</span>
-        ${isAdmin()?`<div><button style="font-size:11px;padding:1px 6px;margin-right:3px" onclick="event.stopPropagation();openEvModal('${k}')">編集</button><button style="font-size:11px;padding:1px 6px;color:#c00" onclick="event.stopPropagation();delEv('${k}')">削除</button></div>`:""}
+        <span style="font-size:11px;background:#f0f2f5;padding:1px 6px;border-radius:4px">${e.status||""}</span>
+        ${hasPerm("ev_edit") ? `<div><button class="action-btn" onclick="event.stopPropagation();openEvModal('${k}')">編集</button><button class="action-btn del" onclick="event.stopPropagation();delEv('${k}')">削除</button></div>` : ""}
       </div>
     </div>`).join("");
 
-  const ev=selectedEventId?events[selectedEventId]:null;
-  const eqItems=ev?Object.entries(ev.items||{}):[]; 
-  const feeItems=ev?Object.entries(ev.fees||{}):[]; 
-  const eqSubtotal=eqItems.reduce((s,[,i])=>s+(i.qty||0)*(i.days||0)*(i.unitPrice||0),0);
-  const feeSubtotal=feeItems.reduce((s,[,i])=>s+(i.qty||0)*(i.days||0)*(i.unitPrice||0),0);
-  const total=eqSubtotal+feeSubtotal;
-  const eqOpts=Object.entries(equipment).map(([k,e])=>`<option value="${k}">${e.name}（${e.model||""}）</option>`).join("");
-  const presetChips=presets.map(p=>`<span class="preset-chip" onclick="addFeePreset('${selectedEventId}','${p.replace(/'/g,"\\'")}',0,1,1)">${p}</span>`).join("");
+  const ev = selectedEventId ? events[selectedEventId] : null;
+  const eqItems = ev ? Object.entries(ev.items||{}) : [];
+  const feeItems = ev ? Object.entries(ev.fees||{}) : [];
+  const eqSub = eqItems.reduce((s,[,i])=>s+(i.qty||0)*(i.days||0)*(i.unitPrice||0),0);
+  const feeSub = feeItems.reduce((s,[,i])=>s+(i.qty||0)*(i.days||0)*(i.unitPrice||0),0);
+  const eqOpts = Object.entries(equipment).map(([k,e])=>`<option value="${k}">${e.name}（${e.model||""}）</option>`).join("");
+  const chips = presets.map(p=>`<span class="preset-chip" onclick="addFeePreset('${selectedEventId}','${p.replace(/'/g,"\\'")}',0,1,1)">${p}</span>`).join("");
 
-  const eqRows=eqItems.map(([ik,i])=>`<tr>
-    <td>${i.name||""}</td><td style="color:#666">${i.model||""}</td>
+  const eqRows = eqItems.map(([ik,i])=>`<tr>
+    <td>${i.name||""}</td><td style="color:#6b7a95">${i.model||""}</td>
     <td style="text-align:center">${i.qty}</td><td style="text-align:center">${i.days}</td>
     <td style="text-align:right">¥${(i.unitPrice||0).toLocaleString()}</td>
     <td style="text-align:right;font-weight:500">¥${((i.qty||0)*(i.days||0)*(i.unitPrice||0)).toLocaleString()}</td>
-    ${isAdmin()?`<td><button style="font-size:11px;color:#c00" onclick="rmItem('${selectedEventId}','${ik}')">削除</button></td>`:"<td></td>"}
+    ${hasPerm("ev_items") ? `<td><button class="action-btn del" onclick="rmItem('${selectedEventId}','${ik}')">削除</button></td>` : "<td></td>"}
   </tr>`).join("");
 
-  const feeRows=feeItems.map(([fk,f])=>`<tr>
-    <td><input class="inline-input" value="${f.name||""}" ${isAdmin()?`onchange="updateFee('${selectedEventId}','${fk}','name',this.value)"`:'readonly'}></td>
-    <td style="text-align:center"><input class="inline-input" type="number" value="${f.qty||1}" min="1" style="width:50px;text-align:center" ${isAdmin()?`onchange="updateFee('${selectedEventId}','${fk}','qty',this.value)"`:'readonly'}></td>
-    <td style="text-align:center"><input class="inline-input" type="number" value="${f.days||1}" min="1" style="width:50px;text-align:center" ${isAdmin()?`onchange="updateFee('${selectedEventId}','${fk}','days',this.value)"`:'readonly'}></td>
-    <td style="text-align:right"><input class="inline-input" type="number" value="${f.unitPrice||0}" min="0" style="width:80px;text-align:right" ${isAdmin()?`onchange="updateFee('${selectedEventId}','${fk}','unitPrice',this.value)"`:'readonly'}></td>
+  const feeRows = feeItems.map(([fk,f])=>`<tr>
+    <td><input class="inline-input" value="${f.name||""}" ${hasPerm("ev_items")?`onchange="updateFee('${selectedEventId}','${fk}','name',this.value)"`:"readonly"}></td>
+    <td><input class="inline-input" type="number" value="${f.qty||1}" min="1" style="width:50px;text-align:center" ${hasPerm("ev_items")?`onchange="updateFee('${selectedEventId}','${fk}','qty',this.value)"`:"readonly"}></td>
+    <td><input class="inline-input" type="number" value="${f.days||1}" min="1" style="width:50px;text-align:center" ${hasPerm("ev_items")?`onchange="updateFee('${selectedEventId}','${fk}','days',this.value)"`:"readonly"}></td>
+    <td><input class="inline-input" type="number" value="${f.unitPrice||0}" min="0" style="width:80px;text-align:right" ${hasPerm("ev_items")?`onchange="updateFee('${selectedEventId}','${fk}','unitPrice',this.value)"`:"readonly"}></td>
     <td style="text-align:right;font-weight:500">¥${((f.qty||0)*(f.days||0)*(f.unitPrice||0)).toLocaleString()}</td>
-    ${isAdmin()?`<td><button style="font-size:11px;color:#c00" onclick="rmFee('${selectedEventId}','${fk}')">削除</button></td>`:"<td></td>"}
+    ${hasPerm("ev_items") ? `<td><button class="action-btn del" onclick="rmFee('${selectedEventId}','${fk}')">削除</button></td>` : "<td></td>"}
   </tr>`).join("");
 
-  const detail=ev?`<div class="card" style="margin-top:1rem">
+  const detail = ev ? `<div class="card" style="margin-top:1rem">
     <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:1rem;flex-wrap:wrap;gap:8px">
-      <div><div style="font-weight:500;font-size:15px">${ev.name||""}</div>
-      <div style="font-size:12px;color:#666;margin-top:3px">${ev.client||""} ／ ${ev.date||""}${ev.endDate&&ev.endDate!==ev.date?" 〜 "+ev.endDate:""}</div></div>
-      <button style="font-weight:500;font-size:13px" onclick="goQuote('${selectedEventId}')">見積書 ↗</button>
+      <div><div style="font-weight:600;font-size:15px">${ev.name||""}</div>
+      <div style="font-size:12px;color:#6b7a95;margin-top:2px">${ev.client||""} ／ ${ev.date||""}${ev.endDate&&ev.endDate!==ev.date?" 〜 "+ev.endDate:""}</div></div>
+      <button class="primary-btn" onclick="goQuote('${selectedEventId}')">見積書 ↗</button>
     </div>
-
-    <!-- 機材 -->
     <div style="font-weight:500;font-size:13px;margin-bottom:8px">機材リスト</div>
-    ${isAdmin()?`<div style="display:flex;gap:8px;margin-bottom:0.75rem;flex-wrap:wrap;align-items:flex-end">
+    ${hasPerm("ev_items") ? `<div style="display:flex;gap:8px;margin-bottom:0.75rem;flex-wrap:wrap;align-items:flex-end">
       <div style="flex:1;min-width:160px"><label>機材</label><select id="item-eq" onchange="eqSelectChange('${selectedEventId}')"><option value="">選択</option>${eqOpts}</select></div>
-      <div><label>数量 <span id="item-qty-hint" style="color:#BA7517;font-size:11px"></span></label><input type="number" id="item-qty" value="1" min="1" style="width:60px"></div>
+      <div><label>数量 <span id="item-qty-hint" style="font-size:11px;color:#BA7517"></span></label><input type="number" id="item-qty" value="1" min="1" style="width:60px"></div>
       <div><label>日数</label><input type="number" id="item-days" value="1" min="1" style="width:60px"></div>
-      <button onclick="addItem('${selectedEventId}')">追加</button>
-    </div>`:""}
-    ${eqItems.length?`<div class="table-wrap"><table>
+      <button class="primary-btn" onclick="addItem('${selectedEventId}')">追加</button>
+    </div>` : ""}
+    ${eqItems.length ? `<div class="table-wrap"><table>
       <thead><tr><th>機材名</th><th>型番</th><th>数量</th><th>日数</th><th>単価</th><th>小計</th><th></th></tr></thead>
       <tbody>${eqRows}</tbody>
-    </table></div>`:`<div style="color:#999;padding:0.75rem 0;font-size:13px">機材がまだ追加されていません</div>`}
-
-    <!-- 費用項目 -->
-    <div class="section-title">費用項目</div>
-    ${isAdmin()?`<div style="margin-bottom:0.75rem">${presetChips}<span class="preset-chip" style="background:#e8f4fd;border-color:#b0d4f0" onclick="addFeePreset('${selectedEventId}','',0,1,1)">+ カスタム</span></div>`:""}
-    ${feeItems.length?`<div class="table-wrap"><table>
-      <thead><tr><th>項目名</th><th style="text-align:center">数量</th><th style="text-align:center">日数</th><th style="text-align:right">単価</th><th style="text-align:right">小計</th><th></th></tr></thead>
+    </table></div>` : `<div style="color:#999;font-size:13px;padding:0.5rem 0">機材がありません</div>`}
+    <div style="font-weight:500;font-size:13px;margin:1rem 0 8px;padding-top:1rem;border-top:0.5px solid #f0f2f5">費用項目</div>
+    ${hasPerm("ev_items") ? `<div style="margin-bottom:0.75rem">${chips}<span class="preset-chip" style="background:#e8f4fd;border-color:#b0d4f0" onclick="addFeePreset('${selectedEventId}','',0,1,1)">+ カスタム</span></div>` : ""}
+    ${feeItems.length ? `<div class="table-wrap"><table>
+      <thead><tr><th>項目名</th><th>数量</th><th>日数</th><th>単価</th><th>小計</th><th></th></tr></thead>
       <tbody>${feeRows}</tbody>
-    </table></div>`:`<div style="color:#999;padding:0.75rem 0;font-size:13px">費用項目がありません</div>`}
-
-    <!-- 合計 -->
-    <div style="margin-top:1rem;padding-top:1rem;border-top:1px solid #eee">
-      <div style="display:flex;justify-content:space-between;font-size:13px;color:#666;margin-bottom:4px"><span>機材小計</span><span>¥${eqSubtotal.toLocaleString()}</span></div>
-      <div style="display:flex;justify-content:space-between;font-size:13px;color:#666;margin-bottom:8px"><span>費用小計</span><span>¥${feeSubtotal.toLocaleString()}</span></div>
-      <div style="display:flex;justify-content:space-between;font-weight:500;font-size:15px"><span>合計</span><span>¥${total.toLocaleString()}</span></div>
+    </table></div>` : `<div style="color:#999;font-size:13px;padding:0.5rem 0">費用項目がありません</div>`}
+    <div style="margin-top:1rem;padding-top:1rem;border-top:0.5px solid #e2e6ec">
+      <div style="display:flex;justify-content:space-between;font-size:12px;color:#6b7a95;margin-bottom:4px"><span>機材小計</span><span>¥${eqSub.toLocaleString()}</span></div>
+      <div style="display:flex;justify-content:space-between;font-size:12px;color:#6b7a95;margin-bottom:8px"><span>費用小計</span><span>¥${feeSub.toLocaleString()}</span></div>
+      <div style="display:flex;justify-content:space-between;font-weight:600;font-size:15px"><span>合計</span><span>¥${(eqSub+feeSub).toLocaleString()}</span></div>
     </div>
-  </div>`:`<div style="text-align:center;color:#999;font-size:13px;padding:2rem 0">イベントを選択してください</div>`;
+  </div>` : `<div style="text-align:center;color:#999;font-size:13px;padding:2rem 0">イベントを選択してください</div>`;
 
-  document.getElementById("main-content").innerHTML=`
+  document.getElementById("main-content").innerHTML = `
     <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:8px">
       <span style="font-weight:500">イベント一覧</span>
-      ${isAdmin()?`<button style="font-size:12px" onclick="openEvModal(null)">+ 追加</button>`:""}
+      ${hasPerm("ev_edit") ? `<button class="primary-btn" onclick="openEvModal(null)">+ 追加</button>` : ""}
     </div>
     ${list||`<div style="color:#999;font-size:13px">イベントがありません</div>`}
     ${detail}`;
 }
 
-window.selEv=k=>{selectedEventId=k;renderEvents();}
-window.openEvModal=function(key){
-  if(!isAdmin()) return;
-  const e=key?events[key]:{};
+window.selEv = k => { selectedEventId=k; renderEvents(); }
+window.openEvModal = function(key) {
+  const e = key ? events[key] : {};
   showModal(`<div class="modal-title">${key?"イベント編集":"イベント追加"}</div>
     <div class="form-row"><label>イベント名</label><input id="ev-name" value="${e.name||""}"></div>
     <div class="form-row"><label>クライアント名</label><input id="ev-client" value="${e.client||""}"></div>
@@ -363,241 +460,277 @@ window.openEvModal=function(key){
     </div>
     <div class="form-row"><label>ステータス</label><select id="ev-status">${["準備中","実施済み","キャンセル"].map(s=>`<option ${e.status===s?"selected":""}>${s}</option>`).join("")}</select></div>
     <div class="form-row"><label>備考</label><textarea id="ev-notes" style="height:60px">${e.notes||""}</textarea></div>
-    <div class="modal-footer"><button onclick="closeModal()">キャンセル</button><button style="font-weight:500" onclick="saveEv('${key||""}')">保存</button></div>`);
+    <div class="modal-footer"><button onclick="closeModal()">キャンセル</button><button class="primary-btn" onclick="saveEv('${key||""}')">保存</button></div>`);
 }
-window.saveEv=function(key){
-  const d={name:V("ev-name"),client:V("ev-client"),date:V("ev-date"),endDate:V("ev-endDate"),status:V("ev-status"),notes:V("ev-notes")};
+window.saveEv = function(key) {
+  const d = {name:V("ev-name"),client:V("ev-client"),date:V("ev-date"),endDate:V("ev-endDate"),status:V("ev-status"),notes:V("ev-notes")};
   if(!d.name) return;
-  if(key){const ex=events[key]||{};set(ref(db,"events/"+key),{...ex,...d});}
+  if(key) { const ex=events[key]||{}; set(ref(db,"events/"+key),{...ex,...d}); }
   else push(ref(db,"events"),{...d,items:{},fees:{}});
   closeModal();
 }
-window.delEv=function(key){if(confirm("削除しますか？")){remove(ref(db,"events/"+key));if(selectedEventId===key)selectedEventId=null;}}
-function getUsedQty(evKey, eqName){
-  const ev=events[evKey];
-  if(!ev||!ev.items) return 0;
-  return Object.values(ev.items).filter(i=>i.name===eqName).reduce((s,i)=>s+(i.qty||0),0);
+window.delEv = function(key) { if(confirm("削除しますか？")) { remove(ref(db,"events/"+key)); if(selectedEventId===key) selectedEventId=null; } }
+
+window.eqSelectChange = function(evKey) {
+  const eqKey = document.getElementById("item-eq").value;
+  const qtyInput = document.getElementById("item-qty");
+  const hint = document.getElementById("item-qty-hint");
+  if(!eqKey) { qtyInput.max=""; if(hint) hint.textContent=""; return; }
+  const eq = equipment[eqKey];
+  const used = getUsedQty(evKey, eq.name);
+  const available = Math.max(0,(eq.qty||0)-used);
+  qtyInput.max = available;
+  qtyInput.value = Math.min(parseInt(qtyInput.value)||1, available||1);
+  if(hint) { hint.textContent = available>0?`残り${available}台`:"在庫なし"; hint.style.color=available>0?"#BA7517":"#A32D2D"; }
 }
 
-window.addItem=function(evKey){
-  const eqKey=document.getElementById("item-eq").value;
+window.addItem = function(evKey) {
+  const eqKey = document.getElementById("item-eq").value;
   if(!eqKey) return;
-  const eq=equipment[eqKey];
-  const used=getUsedQty(evKey,eq.name);
-  const available=Math.max(0,(eq.qty||0)-used);
-  if(available<=0){alert(`「${eq.name}」はすでに在庫数（${eq.qty}台）をすべて追加済みです`);return;}
-  const qty=Math.min(parseInt(document.getElementById("item-qty").value)||1,available);
+  const eq = equipment[eqKey];
+  const used = getUsedQty(evKey, eq.name);
+  const available = Math.max(0,(eq.qty||0)-used);
+  if(available<=0) { alert(`「${eq.name}」はすでに在庫数（${eq.qty}台）をすべて追加済みです`); return; }
+  const qty = Math.min(parseInt(document.getElementById("item-qty").value)||1, available);
   push(ref(db,"events/"+evKey+"/items"),{name:eq.name,model:eq.model||"",qty,days:parseInt(document.getElementById("item-days").value)||1,unitPrice:eq.unitPrice||0});
 }
-
-window.eqSelectChange=function(evKey){
-  const eqKey=document.getElementById("item-eq").value;
-  const qtyInput=document.getElementById("item-qty");
-  const hint=document.getElementById("item-qty-hint");
-  if(!eqKey){qtyInput.max="";if(hint)hint.textContent="";return;}
-  const eq=equipment[eqKey];
-  const used=getUsedQty(evKey,eq.name);
-  const available=Math.max(0,(eq.qty||0)-used);
-  qtyInput.max=available;
-  qtyInput.value=Math.min(parseInt(qtyInput.value)||1,available);
-  if(hint) hint.textContent=available>0?`残り ${available}台`:`在庫なし`;
-  hint.style.color=available>0?"#BA7517":"#A32D2D";
-}
-window.rmItem=(evKey,ik)=>remove(ref(db,"events/"+evKey+"/items/"+ik));
-
-// fee
-window.addFeePreset=function(evKey,name,unitPrice,qty,days){
-  push(ref(db,"events/"+evKey+"/fees"),{name,unitPrice:parseInt(unitPrice)||0,qty:parseInt(qty)||1,days:parseInt(days)||1});
-}
-window.updateFee=function(evKey,fk,field,val){
-  const v=(field==="name")?val:parseInt(val)||0;
-  update(ref(db,"events/"+evKey+"/fees/"+fk),{[field]:v});
-}
-window.rmFee=(evKey,fk)=>remove(ref(db,"events/"+evKey+"/fees/"+fk));
-window.goQuote=function(evKey){quoteEventId=evKey;showTab("quote");}
+window.rmItem = (evKey,ik) => remove(ref(db,"events/"+evKey+"/items/"+ik));
+window.addFeePreset = (evKey,name,unitPrice,qty,days) => push(ref(db,"events/"+evKey+"/fees"),{name,unitPrice:parseInt(unitPrice)||0,qty:parseInt(qty)||1,days:parseInt(days)||1});
+window.updateFee = (evKey,fk,field,val) => update(ref(db,"events/"+evKey+"/fees/"+fk),{[field]:field==="name"?val:parseInt(val)||0});
+window.rmFee = (evKey,fk) => remove(ref(db,"events/"+evKey+"/fees/"+fk));
+window.goQuote = function(evKey) { quoteEventId=evKey; showTab("quote"); }
 
 // ===== QUOTE =====
-let qCompany="株式会社〇〇音響",qClient="",qDate=TODAY,qTax=10,qNote="・機材の搬入・搬出時間は別途ご相談ください。\n・天候等により内容が変更になる場合がございます。";
-function renderQuote(){
-  const evOpts=Object.entries(events).map(([k,e])=>`<option value="${k}" ${quoteEventId===k?"selected":""}>${e.name}</option>`).join("");
-  const ev=quoteEventId?events[quoteEventId]:null;
-  if(ev&&!qClient) qClient=ev.client||"";
-  const eqItems=ev?Object.values(ev.items||{}):[]; 
-  const feeItems=ev?Object.values(ev.fees||{}):[]; 
-  const eqSub=eqItems.reduce((s,i)=>s+(i.qty||0)*(i.days||0)*(i.unitPrice||0),0);
-  const feeSub=feeItems.reduce((s,i)=>s+(i.qty||0)*(i.days||0)*(i.unitPrice||0),0);
-  const subtotal=eqSub+feeSub;
-  const tax=Math.round(subtotal*qTax/100);
-  const total=subtotal+tax;
+let qCompany="株式会社〇〇音響", qClient="", qDate=TODAY, qTax=10, qNote="・機材の搬入・搬出時間は別途ご相談ください。\n・天候等により内容が変更になる場合がございます。";
 
-  const eqRows=eqItems.map(i=>`<tr><td>${i.name||""}</td><td style="color:#666">${i.model||""}</td><td style="text-align:center">${i.qty}</td><td style="text-align:center">${i.days}</td><td style="text-align:right">¥${(i.unitPrice||0).toLocaleString()}</td><td style="text-align:right;font-weight:500">¥${((i.qty||0)*(i.days||0)*(i.unitPrice||0)).toLocaleString()}</td></tr>`).join("");
-  const feeRows=feeItems.map(i=>`<tr><td>${i.name||""}</td><td style="color:#666">—</td><td style="text-align:center">${i.qty}</td><td style="text-align:center">${i.days}</td><td style="text-align:right">¥${(i.unitPrice||0).toLocaleString()}</td><td style="text-align:right;font-weight:500">¥${((i.qty||0)*(i.days||0)*(i.unitPrice||0)).toLocaleString()}</td></tr>`).join("");
+function renderQuote() {
+  const evOpts = Object.entries(events).map(([k,e])=>`<option value="${k}" ${quoteEventId===k?"selected":""}>${e.name}</option>`).join("");
+  const ev = quoteEventId ? events[quoteEventId] : null;
+  if(ev && !qClient) qClient = ev.client||"";
+  const eqItems = ev ? Object.values(ev.items||{}) : [];
+  const feeItems = ev ? Object.values(ev.fees||{}) : [];
+  const eqSub = eqItems.reduce((s,i)=>s+(i.qty||0)*(i.days||0)*(i.unitPrice||0),0);
+  const feeSub = feeItems.reduce((s,i)=>s+(i.qty||0)*(i.days||0)*(i.unitPrice||0),0);
+  const subtotal = eqSub+feeSub;
+  const tax = Math.round(subtotal*qTax/100);
+  const total = subtotal+tax;
 
-  const controls=isAdmin()?`<div class="no-print" style="display:flex;gap:8px;margin-bottom:1rem;flex-wrap:wrap;align-items:flex-end">
-    <div style="flex:1;min-width:160px"><label>イベント</label><select onchange="qEvC(this.value)" style="width:100%"><option value="">選択</option>${evOpts}</select></div>
-    <div><label>発行会社名</label><input value="${qCompany}" oninput="qCompany=this.value;renderQuote()" style="width:180px"></div>
-    <div><label>宛先</label><input value="${qClient}" oninput="qClient=this.value;renderQuote()" style="width:140px"></div>
-    <div><label>発行日</label><input type="date" value="${qDate}" oninput="qDate=this.value;renderQuote()" style="width:140px"></div>
-    <div><label>税率%</label><input type="number" value="${qTax}" oninput="qTax=parseInt(this.value)||0;renderQuote()" style="width:60px"></div>
-    <button style="font-weight:500" onclick="printQuote()">印刷</button>
-  </div>`:`<div class="no-print" style="display:flex;gap:8px;margin-bottom:1rem;flex-wrap:wrap;align-items:flex-end">
-    <div style="flex:1;min-width:160px"><label>イベント</label><select onchange="qEvC(this.value)" style="width:100%"><option value="">選択</option>${evOpts}</select></div>
-    <button style="font-weight:500" onclick="window.print()">印刷</button>
-  </div>`;
+  const allRows = [
+    ...eqItems.map(i=>`<tr><td>${i.name||""}</td><td style="color:#6b7a95">${i.model||""}</td><td style="text-align:center">${i.qty}</td><td style="text-align:center">${i.days}</td><td style="text-align:right">¥${(i.unitPrice||0).toLocaleString()}</td><td style="text-align:right;font-weight:500">¥${((i.qty||0)*(i.days||0)*(i.unitPrice||0)).toLocaleString()}</td></tr>`),
+    ...feeItems.map(i=>`<tr><td>${i.name||""}</td><td style="color:#6b7a95">—</td><td style="text-align:center">${i.qty}</td><td style="text-align:center">${i.days}</td><td style="text-align:right">¥${(i.unitPrice||0).toLocaleString()}</td><td style="text-align:right;font-weight:500">¥${((i.qty||0)*(i.days||0)*(i.unitPrice||0)).toLocaleString()}</td></tr>`)
+  ].join("");
 
-  document.getElementById("main-content").innerHTML=`${controls}
-    <div class="print-area card" style="max-width:720px">
+  const canEdit = hasPerm("quote_edit");
+
+  document.getElementById("main-content").innerHTML = `
+    <div style="display:flex;gap:8px;margin-bottom:1rem;flex-wrap:wrap;align-items:flex-end">
+      <div style="flex:1;min-width:160px"><label>イベント</label><select onchange="qEvC(this.value)" style="width:100%"><option value="">選択</option>${evOpts}</select></div>
+      ${canEdit ? `<div><label>発行会社名</label><input value="${qCompany}" oninput="qCompany=this.value;renderQuote()" style="width:170px"></div>
+      <div><label>宛先</label><input value="${qClient}" oninput="qClient=this.value;renderQuote()" style="width:140px"></div>
+      <div><label>発行日</label><input type="date" value="${qDate}" oninput="qDate=this.value;renderQuote()" style="width:140px"></div>
+      <div><label>税率%</label><input type="number" value="${qTax}" oninput="qTax=parseInt(this.value)||0;renderQuote()" style="width:60px"></div>` : ""}
+      <button class="primary-btn" onclick="printQuote()">印刷</button>
+    </div>
+    <div class="card" style="max-width:720px" id="quote-card">
       <div style="display:flex;justify-content:space-between;margin-bottom:1.5rem;flex-wrap:wrap;gap:1rem">
-        <div><div style="font-size:20px;font-weight:600;margin-bottom:6px">見 積 書</div><div style="font-size:14px">${qClient||"　　　　　"} 御中</div></div>
-        <div style="text-align:right;font-size:12px;color:#666">
-          <div style="font-weight:500;font-size:14px;color:#1a1a1a;margin-bottom:3px">${qCompany}</div>
+        <div><div style="font-size:20px;font-weight:600;margin-bottom:6px">見 積 書</div><div style="font-size:14px">${qClient||"　　　　"} 御中</div></div>
+        <div style="text-align:right;font-size:12px;color:#6b7a95">
+          <div style="font-weight:600;font-size:13px;color:#0f1f3d;margin-bottom:2px">${qCompany}</div>
           <div>発行日：${qDate}</div>
-          ${ev?`<div>${ev.name||""}</div><div>${ev.date||""}${ev.endDate&&ev.endDate!==ev.date?" 〜 "+ev.endDate:""}</div>`:""}
+          ${ev ? `<div>${ev.name||""}</div><div>${ev.date||""}${ev.endDate&&ev.endDate!==ev.date?" 〜 "+ev.endDate:""}</div>` : ""}
         </div>
       </div>
-      <div style="background:#f5f5f0;border-radius:8px;padding:0.875rem;margin-bottom:1.25rem;display:flex;align-items:baseline;gap:10px">
-        <span style="font-size:13px;color:#666">お見積金額（税込）</span>
-        <span style="font-size:24px;font-weight:600">¥${total.toLocaleString()}</span>
+      <div style="background:#f0f2f5;border-radius:8px;padding:0.875rem;margin-bottom:1.25rem;display:flex;align-items:baseline;gap:10px">
+        <span style="font-size:13px;color:#6b7a95">お見積金額（税込）</span>
+        <span style="font-size:24px;font-weight:600;color:#0f1f3d">¥${total.toLocaleString()}</span>
       </div>
       <div class="table-wrap"><table style="margin-bottom:1.25rem">
-        <thead><tr style="background:#f5f5f0"><th>品目</th><th>型番</th><th style="text-align:center">数量</th><th style="text-align:center">日数</th><th style="text-align:right">単価</th><th style="text-align:right">金額</th></tr></thead>
+        <thead><tr style="background:#f0f2f5"><th>品目</th><th>型番</th><th style="text-align:center">数量</th><th style="text-align:center">日数</th><th style="text-align:right">単価</th><th style="text-align:right">金額</th></tr></thead>
         <tbody>
-          ${eqRows}
-          ${feeRows}
-          ${(!eqRows&&!feeRows)?`<tr><td colspan="6" style="text-align:center;color:#999;padding:1rem">イベントを選択してください</td></tr>`:""}
-          <tr><td colspan="5" style="text-align:right;color:#666;border-top:1px solid #eee">小計</td><td style="text-align:right;border-top:1px solid #eee">¥${subtotal.toLocaleString()}</td></tr>
-          <tr><td colspan="5" style="text-align:right;color:#666">消費税（${qTax}%）</td><td style="text-align:right">¥${tax.toLocaleString()}</td></tr>
-          <tr style="background:#f5f5f0"><td colspan="5" style="text-align:right;font-weight:500">合計（税込）</td><td style="text-align:right;font-weight:600;font-size:15px">¥${total.toLocaleString()}</td></tr>
+          ${allRows||`<tr><td colspan="6" style="text-align:center;color:#999;padding:1rem">イベントを選択してください</td></tr>`}
+          <tr><td colspan="5" style="text-align:right;color:#6b7a95;border-top:0.5px solid #e2e6ec">小計</td><td style="text-align:right;border-top:0.5px solid #e2e6ec">¥${subtotal.toLocaleString()}</td></tr>
+          <tr><td colspan="5" style="text-align:right;color:#6b7a95">消費税（${qTax}%）</td><td style="text-align:right">¥${tax.toLocaleString()}</td></tr>
+          <tr style="background:#f0f2f5"><td colspan="5" style="text-align:right;font-weight:600">合計（税込）</td><td style="text-align:right;font-weight:600;font-size:15px">¥${total.toLocaleString()}</td></tr>
         </tbody>
       </table></div>
-      <div style="font-size:12px;color:#666;margin-bottom:4px">備考</div>
-      ${isAdmin()?`<textarea class="no-print" oninput="qNote=this.value" style="width:100%;height:70px;font-size:13px">${qNote}</textarea>`:`<div style="font-size:13px;white-space:pre-wrap;color:#444">${qNote}</div>`}
+      <div style="font-size:12px;color:#6b7a95;margin-bottom:4px">備考</div>
+      ${canEdit ? `<textarea oninput="qNote=this.value" style="width:100%;height:70px;font-size:13px">${qNote}</textarea>` : `<div style="font-size:13px;white-space:pre-wrap;color:#444">${qNote}</div>`}
     </div>`;
 }
-window.qEvC=function(k){quoteEventId=k||null;qClient=k&&events[k]?events[k].client||"":"";renderQuote();}
-
-window.printQuote=function(){
-  const el=document.querySelector(".print-area.card");
-  if(!el){alert("見積書を表示してから印刷してください");return;}
-  const printArea=document.getElementById("print-area");
-  printArea.innerHTML=el.outerHTML;
+window.qEvC = function(k) { quoteEventId=k||null; qClient=k&&events[k]?events[k].client||"":""; renderQuote(); }
+window.printQuote = function() {
+  const el = document.getElementById("quote-card");
+  if(!el) { alert("見積書を表示してから印刷してください"); return; }
+  const printArea = document.getElementById("print-area");
+  printArea.innerHTML = el.outerHTML;
   window.print();
-  printArea.innerHTML="";
+  printArea.innerHTML = "";
 }
 
 // ===== MAINTENANCE =====
-function renderMaintenance(){
-  const overdue=Object.values(equipment).filter(e=>e.nextCheck&&e.nextCheck<=TODAY);
-  const mtArr=Object.entries(maintenance).sort((a,b)=>(b[1].date||"").localeCompare(a[1].date||""));
-  const eqOpts=Object.entries(equipment).map(([k,e])=>`<option value="${k}">${e.name}（${e.model||""}）</option>`).join("");
-  const mtRows=mtArr.map(([k,m])=>`<tr><td>${m.date||""}</td><td style="font-weight:500">${m.eqName||""}</td><td style="color:#666">${m.model||""}</td><td><span class="badge" style="background:${SC[m.status]||"#999"}">${m.status||""}</span></td><td style="color:#666">${m.notes||""}</td></tr>`).join("");
-  document.getElementById("main-content").innerHTML=`
-    ${overdue.length?`<div class="alert-box"><div class="alert-title">点検期限が来ている機材（${overdue.length}件）</div>${overdue.map(e=>`<div style="font-size:12px;color:#633806;margin-bottom:3px">${e.name}（${e.model||""}）— 期限: ${e.nextCheck}</div>`).join("")}</div>`:""}
-    <div class="card" style="margin-bottom:1rem">
-      <div style="font-weight:500;margin-bottom:1rem">点検記録を追加</div>
+function renderMaintenance() {
+  const overdue = Object.values(equipment).filter(e=>e.nextCheck&&e.nextCheck<=TODAY);
+  const mtArr = Object.entries(maintenance).sort((a,b)=>(b[1].date||"").localeCompare(a[1].date||""));
+  const eqOpts = Object.entries(equipment).map(([k,e])=>`<option value="${k}">${e.name}（${e.model||""}）</option>`).join("");
+  const mtRows = mtArr.map(([k,m])=>`<tr><td>${m.date||""}</td><td style="font-weight:500">${m.eqName||""}</td><td style="color:#6b7a95">${m.model||""}</td><td><span class="badge" style="background:${SC[m.status]||"#999"}">${m.status||""}</span></td><td style="color:#6b7a95">${m.notes||""}</td></tr>`).join("");
+
+  document.getElementById("main-content").innerHTML = `
+    ${overdue.length ? `<div class="alert-box"><strong>点検期限（${overdue.length}件）</strong>${overdue.map(e=>`<div style="margin-top:3px">${e.name}（${e.model||""}）— 期限: ${e.nextCheck}</div>`).join("")}</div>` : ""}
+    ${hasPerm("maintenance") ? `<div class="card" style="margin-bottom:1rem">
+      <div class="card-title">点検記録を追加</div>
       <div style="display:flex;gap:10px;flex-wrap:wrap;align-items:flex-end">
         <div style="flex:1;min-width:160px"><label>機材</label><select id="mt-eq"><option value="">選択</option>${eqOpts}</select></div>
         <div><label>点検日</label><input type="date" id="mt-date" value="${TODAY}" style="width:140px"></div>
         <div><label>状態</label><select id="mt-status" style="width:110px">${STATUSES.map(s=>`<option>${s}</option>`).join("")}</select></div>
         <div style="flex:1;min-width:140px"><label>メモ</label><input id="mt-notes"></div>
-        <button style="font-weight:500" onclick="saveMt()">記録</button>
+        <button class="primary-btn" onclick="saveMt()">記録</button>
       </div>
-    </div>
+    </div>` : ""}
     <div style="font-weight:500;margin-bottom:8px">点検履歴</div>
-    ${mtArr.length?`<div class="table-wrap"><table><thead><tr><th>日付</th><th>機材名</th><th>型番</th><th>状態</th><th>メモ</th></tr></thead><tbody>${mtRows}</tbody></table></div>`:`<div style="color:#999;font-size:13px;padding:1rem 0">まだ記録がありません</div>`}`;
+    ${mtArr.length ? `<div class="table-wrap"><table><thead><tr><th>日付</th><th>機材名</th><th>型番</th><th>状態</th><th>メモ</th></tr></thead><tbody>${mtRows}</tbody></table></div>` : `<div style="color:#999;font-size:13px">まだ記録がありません</div>`}`;
 }
-window.saveMt=function(){
-  const eqKey=document.getElementById("mt-eq").value;
+window.saveMt = function() {
+  const eqKey = document.getElementById("mt-eq").value;
   if(!eqKey) return;
-  const eq=equipment[eqKey];
-  const date=document.getElementById("mt-date").value;
-  const status=document.getElementById("mt-status").value;
-  const notes=document.getElementById("mt-notes").value;
+  const eq = equipment[eqKey];
+  const date = document.getElementById("mt-date").value;
+  const status = document.getElementById("mt-status").value;
+  const notes = document.getElementById("mt-notes").value;
   if(!date) return;
-  push(ref(db,"maintenance"),{eqName:eq.name,model:eq.model||"",date,status,notes});
+  push(ref(db,"maintenance"),{eqName:eq.name,model:eq.model||"",date,status,notes,by:currentUser.name});
   update(ref(db,"equipment/"+eqKey),{status,lastCheck:date});
-  document.getElementById("mt-notes").value="";
+  document.getElementById("mt-notes").value = "";
+}
+
+// ===== MY PAGE =====
+function renderMyPage() {
+  document.getElementById("main-content").innerHTML = `
+    <div class="card" style="max-width:400px">
+      <div class="card-title">マイページ</div>
+      <div style="font-size:15px;font-weight:600;color:#0f1f3d;margin-bottom:4px">${currentUser.name}</div>
+      <div style="font-size:12px;color:#6b7a95;margin-bottom:1.25rem">${currentUser.role==="admin"?"管理者":"一般メンバー"}</div>
+      <div style="border-top:0.5px solid #f0f2f5;padding-top:1rem">
+        <div style="font-weight:500;margin-bottom:0.75rem">パスワードを変更</div>
+        <div class="form-row"><label>現在のパスワード</label><input type="password" id="my-cur-pass" placeholder="現在のパスワード"></div>
+        <div class="form-row"><label>新しいパスワード</label><input type="password" id="my-new-pass" placeholder="新しいパスワード"></div>
+        <div class="form-row"><label>新しいパスワード（確認）</label><input type="password" id="my-new-pass2" placeholder="もう一度入力"></div>
+        <button class="primary-btn" onclick="changeMyPass()">変更する</button>
+        <div id="my-pass-msg" style="font-size:13px;margin-top:8px"></div>
+      </div>
+    </div>`;
+}
+window.changeMyPass = async function() {
+  const cur = document.getElementById("my-cur-pass").value;
+  const nw = document.getElementById("my-new-pass").value;
+  const nw2 = document.getElementById("my-new-pass2").value;
+  const msg = document.getElementById("my-pass-msg");
+  const snap = await get(ref(db,"members/"+currentUser.id+"/password"));
+  if(snap.val()!==cur) { msg.style.color="#c00"; msg.textContent="現在のパスワードが違います"; return; }
+  if(!nw) { msg.style.color="#c00"; msg.textContent="新しいパスワードを入力してください"; return; }
+  if(nw!==nw2) { msg.style.color="#c00"; msg.textContent="パスワードが一致しません"; return; }
+  await set(ref(db,"members/"+currentUser.id+"/password"),nw);
+  msg.style.color="#1D9E75"; msg.textContent="パスワードを変更しました";
+  document.getElementById("my-cur-pass").value="";
+  document.getElementById("my-new-pass").value="";
+  document.getElementById("my-new-pass2").value="";
 }
 
 // ===== SETTINGS =====
-function renderSettings(){
-  const presetItems=presets.map((p,i)=>`
+function renderSettings() {
+  const memberCards = Object.entries(members).map(([id,m])=>{
+    const permToggles = m.role==="admin" ? `<div style="font-size:12px;color:#6b7a95;padding:8px 0">管理者はすべての権限を持ちます</div>` :
+      PERMS.map(p=>`<div class="perm-toggle">
+        <span>${p.label}</span>
+        <label class="toggle"><input type="checkbox" ${m.permissions?.[p.key]?"checked":""} onchange="togglePerm('${id}','${p.key}',this.checked)"><span class="toggle-slider"></span></label>
+      </div>`).join("");
+    return `<div class="member-card">
+      <div style="display:flex;justify-content:space-between;align-items:flex-start">
+        <div>
+          <div class="member-name">${m.name}</div>
+          <div class="member-role">${m.role==="admin"?"管理者":"一般メンバー"}</div>
+        </div>
+        <div style="display:flex;gap:6px;align-items:center">
+          <span class="pw-display">${m.password||""}</span>
+          <button class="action-btn" onclick="resetPass('${id}')">リセット</button>
+          ${id!=="admin" ? `<button class="action-btn del" onclick="delMember('${id}')">削除</button>` : ""}
+        </div>
+      </div>
+      <div style="margin-top:0.75rem;border-top:0.5px solid #f0f2f5;padding-top:0.75rem">${permToggles}</div>
+    </div>`;
+  }).join("");
+
+  const presetItems = presets.map((p,i)=>`
     <div style="display:flex;gap:8px;align-items:center;margin-bottom:8px">
       <input id="preset-${i}" value="${p}" style="flex:1">
-      <button style="font-size:12px;color:#c00;padding:4px 8px" onclick="delPreset(${i})">削除</button>
+      <button class="action-btn del" onclick="delPreset(${i})">削除</button>
     </div>`).join("");
-  document.getElementById("main-content").innerHTML=`
-    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:1rem">
-      <div class="card">
-        <div style="font-weight:500;font-size:15px;margin-bottom:1rem">費用項目プリセット管理</div>
-        ${presetItems}
-        <div style="display:flex;gap:8px;margin-top:8px">
-          <input id="new-preset" placeholder="新しい項目名" style="flex:1">
-          <button style="font-weight:500" onclick="addPreset()">追加</button>
+
+  document.getElementById("main-content").innerHTML = `
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:1rem">
+      <div>
+        <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:0.75rem">
+          <span style="font-weight:600;font-size:14px">メンバー管理</span>
+          <button class="primary-btn" onclick="openAddMemberModal()">+ メンバー追加</button>
         </div>
-        <button style="margin-top:12px;font-weight:500;width:100%" onclick="savePresets()">プリセットを保存</button>
-        <div id="preset-msg" style="font-size:13px;color:#1D9E75;margin-top:8px"></div>
+        ${memberCards}
       </div>
-      <div class="card">
-        <div style="font-weight:500;font-size:15px;margin-bottom:1rem">パスワード管理</div>
-        <div class="form-row"><label>管理者パスワード（現在）</label><input type="password" id="cur-admin-pass" placeholder="現在のパスワード"></div>
-        <div class="form-row"><label>管理者パスワード（新しい）</label><input type="password" id="new-admin-pass" placeholder="新しいパスワード"></div>
-        <button style="font-weight:500;margin-bottom:1.5rem" onclick="changeAdminPass()">管理者パスワードを変更</button>
-        <div style="border-top:1px solid #eee;padding-top:1.25rem;margin-top:0.5rem">
-          <div style="font-weight:500;margin-bottom:1rem">一般メンバーパスワード</div>
-          <div class="form-row"><label>新しいパスワード</label><input type="password" id="new-member-pass" placeholder="新しいパスワード"></div>
-          <button style="font-weight:500" onclick="changeMemberPass()">変更</button>
+      <div>
+        <div class="card">
+          <div class="card-title">費用項目プリセット</div>
+          ${presetItems}
+          <div style="display:flex;gap:8px;margin-top:8px">
+            <input id="new-preset" placeholder="新しい項目名" style="flex:1">
+            <button class="primary-btn" onclick="addPreset()">追加</button>
+          </div>
+          <button class="primary-btn" style="width:100%;margin-top:10px" onclick="savePresets()">保存</button>
+          <div id="preset-msg" style="font-size:13px;color:#1D9E75;margin-top:6px"></div>
         </div>
-        <div id="settings-msg" style="margin-top:1rem;font-size:13px;color:#1D9E75"></div>
       </div>
     </div>`;
 }
 
-window.addPreset=function(){
-  const v=document.getElementById("new-preset").value.trim();
-  if(!v) return;
-  presets=[...presets,v];
-  renderSettings();
+window.openAddMemberModal = function() {
+  showModal(`<div class="modal-title">メンバーを追加</div>
+    <div class="form-row"><label>名前</label><input id="new-name" placeholder="名前を入力"></div>
+    <div class="form-row"><label>パスワード</label><input id="new-pw" placeholder="初期パスワード"></div>
+    <div class="form-row"><label>ロール</label>
+      <select id="new-role"><option value="member">一般メンバー</option><option value="admin">管理者</option></select>
+    </div>
+    <div class="modal-footer"><button onclick="closeModal()">キャンセル</button><button class="primary-btn" onclick="addMember()">追加</button></div>`);
 }
-window.delPreset=function(i){presets=presets.filter((_,j)=>j!==i);renderSettings();}
-window.savePresets=async function(){
-  const obj=presets.reduce((o,p,i)=>(o[i]=p,o),{});
-  await set(ref(db,"presets"),obj);
+window.addMember = function() {
+  const name = V("new-name");
+  const pw = V("new-pw");
+  const role = V("new-role");
+  if(!name||!pw) return;
+  push(ref(db,"members"),{name,password:pw,role,permissions:{}});
+  closeModal();
+}
+window.delMember = function(id) { if(confirm("削除しますか？")) remove(ref(db,"members/"+id)); }
+window.togglePerm = function(id,key,val) { set(ref(db,"members/"+id+"/permissions/"+key),val); }
+window.resetPass = function(id) {
+  const newPw = prompt("新しいパスワードを入力してください：");
+  if(!newPw) return;
+  set(ref(db,"members/"+id+"/password"),newPw);
+}
+window.addPreset = function() { const v=V("new-preset").trim(); if(!v) return; presets=[...presets,v]; renderSettings(); }
+window.delPreset = function(i) { presets=presets.filter((_,j)=>j!==i); renderSettings(); }
+window.savePresets = async function() {
+  await set(ref(db,"presets"),presets.reduce((o,p,i)=>(o[i]=p,o),{}));
   const m=document.getElementById("preset-msg");
   if(m){m.textContent="保存しました";setTimeout(()=>m.textContent="",2000);}
 }
 
-window.changeAdminPass=async function(){
-  const cur=document.getElementById("cur-admin-pass").value;
-  const nw=document.getElementById("new-admin-pass").value;
-  const msg=document.getElementById("settings-msg");
-  if(!nw){msg.style.color="#c00";msg.textContent="新しいパスワードを入力してください";return;}
-  const snap=await get(ref(db,"passwords/admin"));
-  if(snap.val()!==cur){msg.style.color="#c00";msg.textContent="現在のパスワードが違います";return;}
-  await set(ref(db,"passwords/admin"),nw);
-  msg.style.color="#1D9E75";msg.textContent="管理者パスワードを変更しました";
-  document.getElementById("cur-admin-pass").value="";
-  document.getElementById("new-admin-pass").value="";
-}
-window.changeMemberPass=async function(){
-  const nw=document.getElementById("new-member-pass").value;
-  const msg=document.getElementById("settings-msg");
-  if(!nw){msg.style.color="#c00";msg.textContent="パスワードを入力してください";return;}
-  await set(ref(db,"passwords/member"),nw);
-  msg.style.color="#1D9E75";msg.textContent="一般メンバーパスワードを変更しました";
-  document.getElementById("new-member-pass").value="";
-}
-
 // ===== HELPERS =====
-function V(id){const el=document.getElementById(id);return el?el.value:"";}
-function showModal(html){
-  const bg=document.createElement("div");
-  bg.className="modal-bg";
-  bg.innerHTML=`<div class="modal" onclick="event.stopPropagation()">${html}</div>`;
-  bg.onclick=()=>bg.remove();
+function V(id) { const el=document.getElementById(id); return el?el.value:""; }
+function showModal(html) {
+  const bg = document.createElement("div");
+  bg.className = "modal-bg";
+  bg.innerHTML = `<div class="modal" onclick="event.stopPropagation()">${html}</div>`;
+  bg.onclick = () => bg.remove();
   document.getElementById("modal-container").appendChild(bg);
 }
-window.closeModal=function(){const m=document.querySelector(".modal-bg");if(m)m.remove();}
+window.closeModal = function() { const m=document.querySelector(".modal-bg"); if(m) m.remove(); }
 
 initDefaults();
 </script>
